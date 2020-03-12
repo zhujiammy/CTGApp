@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#7dc5eb</color>
+    <color name="colorPrimaryDark">#1296db</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="tv1">#B9B9B9</color>
+    <color name="tv2">#333333</color>
+    <color name="tv3">#777777</color>
+    <color name="tv4">#98999A</color>
+    <color name="line">#F2F2F2</color>
+
+</resources>

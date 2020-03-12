@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">车同轨</string>
+    <string name="title_home">首页</string>
+    <string name="title_msg">消息</string>
+    <string name="title_work">工作</string>
+    <string name="title_transaction">交易</string>
+    <string name="title_my">我的</string>
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:layout_alignParentTop="true"
+        android:id="@+id/layout"
+        layout="@layout/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+   <com.google.android.material.bottomnavigation.BottomNavigationView
+       android:layout_alignParentBottom="true"
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+       app:labelVisibilityMode="labeled"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/bottom_nav_menu" />
+
+    <fragment
+        android:layout_below="@id/layout"
+        android:layout_above="@id/nav_view"
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintTop_toBottomOf="@+id/layout"
+        app:navGraph="@navigation/mobile_navigation"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp" />
+
+
+</RelativeLayout>
