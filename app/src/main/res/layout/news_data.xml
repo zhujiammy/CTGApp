@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="77dp"
     xmlns:tools="http://schemas.android.com/tools">
     <LinearLayout
         android:id="@+id/sys_news"
@@ -24,19 +24,12 @@
                 android:layout_weight="2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <RelativeLayout
-                    android:background="@drawable/news_selector"
+                <ImageView
+                    android:src="@mipmap/headportrait"
                     android:layout_centerInParent="true"
                     android:layout_width="48dp"
                     android:layout_height="48dp">
-                    <ImageView
-                        android:layout_centerInParent="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_notifications_black_24dp"
-                        />
-
-                </RelativeLayout>
+                </ImageView>
             </RelativeLayout>
             <RelativeLayout
                 android:gravity="center_vertical"

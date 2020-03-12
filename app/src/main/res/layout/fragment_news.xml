@@ -134,6 +134,8 @@
                 android:layout_height="5dp"
                 />
             <com.c.ctgapp.Tools.RecyclerViewEmptySupport
+                android:id="@+id/recyclerView"
+                android:elevation="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
         </LinearLayout>
