@@ -53,32 +53,42 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                        toolbar_title.setText(item.getTitle());
-                       switch (item.getItemId()){
-                           case R.id.navigation_home:
-                               left_tv.setVisibility(View.GONE);
-                               right_tv.setVisibility(View.GONE);
-                               break;
+                       if(item.isChecked()){
+                           switch (item.getItemId()){
+                               case R.id.navigation_home:
+                                   left_tv.setVisibility(View.GONE);
+                                   right_tv.setVisibility(View.GONE);
+                                   toolbar.setVisibility(View.VISIBLE);
+                                   break;
 
-                           case R.id.navigation_news:
-                               left_tv.setVisibility(View.VISIBLE);
-                               right_tv.setVisibility(View.VISIBLE);
-                               left_tv.setText("我的商友");
-                               right_tv.setText("添加");
-                               break;
-                           case R.id.navigation_work:
-                                left_tv.setVisibility(View.GONE);
-                                right_tv.setVisibility(View.GONE);
-                               break;
-                           case R.id.navigation_transaction:
-                               left_tv.setVisibility(View.GONE);
-                               right_tv.setVisibility(View.GONE);
-                               break;
+                               case R.id.navigation_news:
+                                   left_tv.setVisibility(View.VISIBLE);
+                                   right_tv.setVisibility(View.VISIBLE);
+                                   left_tv.setText("我的商友");
+                                   right_tv.setText("添加");
+                                   toolbar.setVisibility(View.VISIBLE);
+                                   break;
+                               case R.id.navigation_work:
+                                   left_tv.setVisibility(View.GONE);
+                                   right_tv.setVisibility(View.GONE);
+                                   toolbar.setVisibility(View.VISIBLE);
+                                   break;
+                               case R.id.navigation_transaction:
+                                   left_tv.setVisibility(View.GONE);
+                                   right_tv.setVisibility(View.GONE);
+                                   toolbar.setVisibility(View.VISIBLE);
+                                   break;
 
-                           case R.id.navigation_my:
-                               left_tv.setVisibility(View.GONE);
-                               right_tv.setVisibility(View.GONE);
-                               break;
+                               case R.id.navigation_my:
+                                   toolbar.setVisibility(View.GONE);
+                                   left_tv.setVisibility(View.GONE);
+                                   right_tv.setVisibility(View.GONE);
+                                   break;
+                           }
+                           return  true;
                        }
+
+
 
                         return onNavDestinationSelected(item, navController);
                     }

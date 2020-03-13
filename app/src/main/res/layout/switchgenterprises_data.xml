@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/linerlayout_selected"
+        android:clickable="true"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout4"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:layout_marginLeft="12dp"
+            android:button="@null"
+            android:background="@drawable/radio_select"
+            android:id="@+id/check"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            android:layout_toRightOf="@id/check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:text="无锡车同轨科技有限公司"
+            android:textColor="@color/tv2"
+            android:textSize="14sp" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/relativeLayout5"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

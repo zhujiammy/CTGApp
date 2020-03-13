@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:background="@color/line"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:layout_alignParentTop="true"
+        android:id="@+id/layout"
+        layout="@layout/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.c.ctgapp.Tools.RecyclerViewEmptySupport
+        android:layout_above="@id/bottom"
+        android:layout_marginTop="10dp"
+        android:background="@color/line"
+        android:layout_below="@id/layout"
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:id="@+id/bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <Button
+            android:id="@+id/createenterprise_btn"
+            android:textColor="@color/white"
+            android:text="@string/createenterprise"
+            android:layout_marginLeft="12dp"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:background="@drawable/button_selector"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"/>
+
+        <Button
+            android:id="@+id/Applicationaccession_btn"
+            android:textSize="15sp"
+            android:text="@string/Applicationaccession"
+            android:textColor="@color/white"
+            android:layout_marginRight="12dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/button_selector"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"/>
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

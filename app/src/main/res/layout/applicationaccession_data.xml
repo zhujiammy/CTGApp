@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="101dp"
+    android:background="@color/white"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        android:id="@+id/sys_news"
+        android:orientation="vertical"
+        android:layout_marginTop="4.5dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        tools:ignore="MissingConstraints,UselessLeaf">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line"
+            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:src="@mipmap/headportrait"
+                    android:layout_centerInParent="true"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp">
+                </ImageView>
+            </RelativeLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_marginTop="9dp"
+                    android:id="@+id/top_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22.5dp"
+                    android:layout_marginStart="16dp"
+                    android:text="无锡车同轨科技有限公司"
+                    android:textColor="@color/tv2"
+                    android:textSize="17sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.205" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/top_tv"
+                    android:layout_marginTop="2dp"
+                    android:text="江苏省无锡市江海东路588-3-101"
+                    android:textColor="@color/tv5"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintTop_toBottomOf="@+id/top_tv" />
+
+                <ImageView
+                    android:layout_marginTop="2dp"
+                    android:id="@+id/imageView"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    app:layout_constraintStart_toStartOf="@+id/top_tv"
+                    app:layout_constraintTop_toBottomOf="@+id/top_tv"
+                    app:srcCompat="@mipmap/address_s" />
+
+                <ImageView
+                    android:layout_marginTop="2dp"
+                    android:id="@+id/imageView4"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    app:srcCompat="@mipmap/phone" />
+
+                <TextView
+                    android:layout_marginTop="2dp"
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8938-40475615"
+                    android:textColor="@color/tv5"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+                    app:layout_constraintStart_toEndOf="@+id/imageView4" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <RelativeLayout
+                android:gravity="center"
+                android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:padding="4dp"
+                    android:background="@drawable/button_1_slector"
+                    android:id="@+id/date"
+                    android:textColor="@color/button"
+                    android:textSize="12sp"
+                    android:layout_width="50dp"
+                    android:layout_height="25dp"
+                    android:text="加入"
+                    />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/sys_news"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

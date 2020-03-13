@@ -13,6 +13,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:background="@color/colorPrimaryDark"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         tools:ignore="MissingConstraints">
         <TextView
             android:layout_marginTop="10dp"

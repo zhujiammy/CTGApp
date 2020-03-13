@@ -1,4 +1,4 @@
-package com.c.ctgapp.ui.news;
+package com.c.ctgapp.ui.transaction;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
