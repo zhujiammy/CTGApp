@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                        toolbar_title.setText(item.getTitle());
-                       if(item.isChecked()){
+
                            switch (item.getItemId()){
                                case R.id.navigation_home:
                                    left_tv.setVisibility(View.GONE);
@@ -85,14 +85,16 @@ public class MainActivity extends AppCompatActivity {
                                    right_tv.setVisibility(View.GONE);
                                    break;
                            }
-                           return  true;
-                       }
+
+
 
 
 
                         return onNavDestinationSelected(item, navController);
                     }
                 });
+
+
 
 
 

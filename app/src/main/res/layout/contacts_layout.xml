@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:layout_marginLeft="12dp"
+            android:layout_centerVertical="true"
+            android:textSize="14sp"
+            android:textColor="@color/tv8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="对外联系人"
+            />
+
+
+        <ImageView
+            android:id="@+id/close_iv"
+            android:layout_marginRight="12dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/edit_delete"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints"
+        />
+    <com.c.ctgapp.Tools.RecyclerViewEmptySupport
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+
+</LinearLayout>

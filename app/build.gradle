@@ -48,4 +48,10 @@ dependencies {
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
     implementation 'com.github.SheHuan:NiceImageView:1.0.5'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.3.0'
+    
+
+
+
+
 }

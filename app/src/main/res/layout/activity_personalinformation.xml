@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:layout_alignParentTop="true"
+        android:id="@+id/layout"
+        layout="@layout/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <com.c.ctgapp.Tools.BounceScrollView
+        android:layout_above="@id/bottom"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints,Suspicious0dp"
+                tools:layout_editor_absoluteX="1dp" />
+            <RelativeLayout
+                android:id="@+id/relativeLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@drawable/linerlayout_selected"
+                android:clickable="true"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="27dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="14dp"
+                    android:text="@string/Headportrait"
+                    android:textColor="@color/tv3"
+                    android:textSize="14sp" />
+
+                <com.shehuan.niv.NiceImageView
+                    android:id="@+id/niceImageView"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/df"
+                    app:border_color="@color/white"
+                    app:border_width="1dp"
+                    app:is_circle="true"
+                    android:layout_marginRight="8dp"
+                    android:layout_toLeftOf="@id/backsss" />
+
+                <ImageView
+                    android:id="@+id/backsss"
+                    android:layout_width="4dp"
+                    android:layout_height="7dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:src="@mipmap/backs" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout6"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/relativeLayout3"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="1dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/linerlayout_selected"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="27dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="14dp"
+                    android:text="@string/Nickname"
+                    android:textColor="@color/tv3"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:hint="请输入昵称"
+                    android:textSize="15sp"
+                    android:gravity="center|right"
+                    android:textColor="@color/tv8"
+                    android:background="@color/white"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignParentRight="true"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/line"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/relativeLayout3"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="1dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/linerlayout_selected"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="27dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="14dp"
+                    android:text="@string/Externalposition"
+                    android:textColor="@color/tv3"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:hint="请输入职位"
+                    android:textSize="15sp"
+                    android:gravity="center|right"
+                    android:textColor="@color/tv8"
+                    android:background="@color/white"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignParentRight="true"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/relativeLayout3"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="1dp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/linerlayout_selected"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="27dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="14dp"
+                    android:text="@string/Expertise"
+                    android:textColor="@color/tv3"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:hint="请输入专长、特长"
+                    android:textSize="15sp"
+                    android:gravity="center|right"
+                    android:textColor="@color/tv8"
+                    android:background="@color/white"
+                    android:layout_width="150dp"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignParentRight="true"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/line"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/relativeLayout3"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="1dp" />
+            <RelativeLayout
+                android:id="@+id/Personalauthentication_rt"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/linerlayout_selected"
+                android:clickable="true"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="27dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="14dp"
+                    android:text="@string/Personalauthentication"
+                    android:textColor="@color/tv3"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_margin="4dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/personalauthentication"
+                    android:layout_marginRight="8dp"
+                    android:layout_toLeftOf="@id/backssss" />
+
+                <ImageView
+                    android:id="@+id/backssss"
+                    android:layout_width="4dp"
+                    android:layout_height="7dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:src="@mipmap/backs" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/line"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/relativeLayout3"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="1dp" />
+
+        </LinearLayout>
+
+    </com.c.ctgapp.Tools.BounceScrollView>
+
+
+
+
+
+
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:id="@+id/bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <Button
+            android:id="@+id/createenterprise_btn"
+            android:textColor="@color/white"
+            android:text="@string/save"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:background="@drawable/button_selector"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"/>
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

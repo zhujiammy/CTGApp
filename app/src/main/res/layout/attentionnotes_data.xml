@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="77dp"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        android:id="@+id/sys_news"
+        android:orientation="vertical"
+        android:layout_marginTop="4.5dp"
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        tools:ignore="MissingConstraints,UselessLeaf">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line"
+            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_weight="4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:src="@mipmap/headportrait"
+                    android:layout_centerInParent="true"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp">
+                </ImageView>
+            </RelativeLayout>
+            <RelativeLayout
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/top_tv"
+                    android:textColor="@color/tv2"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22.5dp"
+                    android:text="无锡车同轨科技"
+                    />
+                <TextView
+                    android:layout_below="@id/top_tv"
+                    android:textSize="13sp"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/tv1_selector"
+                    android:gravity="center"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:text="制造商"
+                    android:textColor="@color/tv11"
+                    />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

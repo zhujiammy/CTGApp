@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/line"
+    android:id="@+id/mDrawer_layout"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="UselessParent">
+            <include
+                android:layout_alignParentTop="true"
+                android:id="@+id/layout"
+                layout="@layout/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <LinearLayout
+                android:layout_below="@id/layout"
+                android:id="@+id/tops"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints" />
+            <com.google.android.material.tabs.TabLayout
+                android:layout_below="@id/tops"
+                android:background="@color/white"
+                app:tabIndicatorColor="@color/tab_color"
+                app:tabIndicatorFullWidth="false"
+                android:id="@+id/tab_layout"
+                app:tabMode="fixed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/search_lin"
+                android:background="@color/white"
+                android:layout_below="@id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <com.c.ctgapp.Tools.ClearEditText
+                    android:layout_weight="1"
+                    android:paddingRight="5dp"
+                    android:textColorHint="@color/hint_search"
+                    android:textSize="12sp"
+                    android:paddingLeft="20dp"
+                    android:hint="输入关键字搜索"
+                    android:textColor="@color/tv5"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/seach_selector"
+                    android:id="@+id/search_ed"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_below="@id/search_lin"
+                android:id="@+id/top"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/line"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints" />
+
+            <com.c.ctgapp.Tools.NoScrollViewPager
+                android:layout_below="@id/top"
+                android:id="@+id/pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+            </com.c.ctgapp.Tools.NoScrollViewPager>
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

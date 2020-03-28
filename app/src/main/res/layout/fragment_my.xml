@@ -7,7 +7,7 @@
     android:background="@color/white"
     tools:context=".ui.my.MyFragment">
 
-
+<!--    com.c.ctgapp.Tools.BounceScrollView-->
     <com.c.ctgapp.Tools.BounceScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -90,7 +90,7 @@
                     app:layout_constraintTop_toTopOf="@+id/niceImageView" />
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/phone_num"
                     android:layout_width="98dp"
                     android:layout_height="20.5dp"
                     android:layout_marginStart="14dp"
@@ -102,7 +102,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/name" />
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/edit_iv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="9dp"
@@ -174,7 +174,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView9"
+                        android:id="@+id/Businessfriend_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="46dp"
@@ -192,7 +192,7 @@
                         android:layout_marginStart="46dp"
                         android:background="@drawable/textview7_selector"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/textView9"
+                        app:layout_constraintStart_toEndOf="@+id/Businessfriend_tv"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
@@ -230,6 +230,7 @@
                 tools:layout_editor_absoluteX="16dp">
 
                 <LinearLayout
+                    android:id="@+id/mybusiness_lin"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -254,6 +255,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/Myteam_lin"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -392,7 +394,7 @@
                 tools:layout_editor_absoluteX="1dp" />
 
             <RelativeLayout
-                android:id="@+id/relativeLayout2"
+                android:id="@+id/Queryrecord_rl"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@drawable/linerlayout_selected"
@@ -443,7 +445,7 @@
                 tools:layout_editor_absoluteX="1dp" />
 
             <RelativeLayout
-                android:id="@+id/relativeLayout3"
+                android:id="@+id/Attentionnotes_rl"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@drawable/linerlayout_selected"
@@ -543,7 +545,7 @@
                 tools:layout_editor_absoluteX="1dp" />
 
             <RelativeLayout
-                android:id="@+id/relativeLayout5"
+                android:id="@+id/Set_RL"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@drawable/linerlayout_selected"
@@ -581,7 +583,22 @@
                     android:src="@mipmap/backs" />
 
             </RelativeLayout>
-
+            <LinearLayout
+                android:paddingTop="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/line"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints" />
+            <RelativeLayout
+                android:background="@color/line"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@mipmap/wcbg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
             <LinearLayout
                 android:paddingTop="40dp"
                 android:layout_width="match_parent"

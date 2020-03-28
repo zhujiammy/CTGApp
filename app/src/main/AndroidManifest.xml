@@ -13,7 +13,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="fullSensor">
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,6 +28,31 @@
             tools:ignore="InnerclassSeparator,LockedOrientationActivity" />
         <activity android:name=".ui.my.SwitchingEnterprises.ApplicationAccessionActivity" android:screenOrientation="portrait"
             tools:ignore="InnerclassSeparator,LockedOrientationActivity" />
+        <activity android:name=".ui.my.PersonalInformationActivity" android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator,LockedOrientationActivity" />
+        <activity android:name=".ui.my.PersonalAuthenticationActivity" android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator,LockedOrientationActivity" />
+        <activity android:name=".ui.my.BusinessFriend.BusinessFriendActivity" android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator,LockedOrientationActivity" />
+        <activity android:name=".ui.my.BusinessFriend.GroupingActivity" android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator,LockedOrientationActivity" />
+        <activity android:name=".ui.my.SetActivity" android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator,LockedOrientationActivity" />
+        <activity android:name=".ui.my.ChangePasswordActivity" android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator,LockedOrientationActivity" />
+        <activity android:name=".ui.my.ReceivingAddressActivity" android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator,LockedOrientationActivity" />
+        <activity android:name=".ui.my.AddAddressActivity" android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator,LockedOrientationActivity" />
+        <activity android:name=".ui.my.AttentionNotesActivity" android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator,LockedOrientationActivity" />
+        <activity android:name=".ui.my.QueryrecordActivity" android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator,LockedOrientationActivity" />
+        <activity android:name=".ui.my.MyBusinessActivity" android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator,LockedOrientationActivity" />
+
+
+
     </application>
 
 </manifest>

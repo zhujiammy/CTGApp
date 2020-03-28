@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <TextView
+            android:layout_marginLeft="12dp"
+            android:layout_centerVertical="true"
+            android:textSize="14sp"
+            android:textColor="@color/tv8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="公司信息"
+            />
+
+        <ImageView
+            android:id="@+id/close_iv"
+            android:layout_marginRight="12dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/edit_delete"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints"
+        />
+
+    <LinearLayout
+        android:paddingLeft="23dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:textColor="@color/tv8"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="公司电话"
+            />
+        <EditText
+            android:paddingLeft="40dp"
+            android:textColor="@color/tv6"
+            android:textSize="15sp"
+            android:hint="请输入公司电话"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints"
+        />
+
+    <LinearLayout
+        android:paddingLeft="23dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:textColor="@color/tv8"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="公司邮箱"
+            />
+        <EditText
+            android:paddingLeft="40dp"
+            android:textColor="@color/tv6"
+            android:textSize="15sp"
+            android:hint="请输入公司邮箱"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints"
+        />
+
+    <LinearLayout
+        android:paddingLeft="23dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:textColor="@color/tv8"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="公司网址"
+            />
+        <EditText
+            android:paddingLeft="40dp"
+            android:textColor="@color/tv6"
+            android:textSize="15sp"
+            android:hint="请输入公司网址"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints"
+        />
+
+    <LinearLayout
+        android:paddingLeft="23dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:textColor="@color/tv8"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="公司规模"
+            />
+        <EditText
+            android:paddingLeft="40dp"
+            android:textColor="@color/tv6"
+            android:textSize="15sp"
+            android:hint="请输入公司规模"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints"
+        />
+
+    <LinearLayout
+        android:paddingLeft="23dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:textColor="@color/tv8"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="公司地址"
+            />
+        <EditText
+            android:paddingLeft="40dp"
+            android:textColor="@color/tv6"
+            android:textSize="15sp"
+            android:hint="请输入公司地址"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp">
+
+    </LinearLayout>
+
+
+</LinearLayout>

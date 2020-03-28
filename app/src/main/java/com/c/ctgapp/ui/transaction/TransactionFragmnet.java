@@ -13,7 +13,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.c.ctgapp.R;
-import com.c.ctgapp.ui.news.TransactionViewMode;
 
 
 
