@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:background="@color/line"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:layout_alignParentTop="true"
+        android:id="@+id/layout"
+        layout="@layout/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <com.c.ctgapp.Tools.BounceScrollView
+        android:layout_marginTop="10dp"
+        android:layout_above="@id/bottom"
+        android:layout_below="@id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/linerlayout_selected"
+                android:clickable="true"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/Industryattribute"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="14dp"
+                    android:text="@string/name_name"
+                    android:textColor="@color/tv2"
+                    android:textSize="14sp" />
+                <TextView
+                    android:layout_marginLeft="9dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/Industryattribute"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textColor="@color/red"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:textSize="15sp"
+                    android:hint="请填写姓名"
+                    android:textColor="@color/tv7"
+                    android:background="@color/white"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"/>
+
+
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="1dp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/linerlayout_selected"
+                android:clickable="true"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/Enterprisename"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="14dp"
+                    android:text="@string/phonenumber"
+                    android:textColor="@color/tv2"
+                    android:textSize="14sp" />
+                <TextView
+                    android:layout_marginLeft="9dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/Enterprisename"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textColor="@color/red"
+                    android:textSize="14sp" />
+
+                <EditText
+
+                    android:textSize="15sp"
+                    android:hint="请填写手机号"
+                    android:textColor="@color/tv7"
+                    android:background="@color/white"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"/>
+
+
+
+
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/line"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="1dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/linerlayout_selected"
+                android:clickable="true"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="14dp"
+                    android:text="@string/position"
+                    android:textColor="@color/tv2"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:textSize="15sp"
+                    android:hint="请选择职位"
+                    android:textColor="@color/tv7"
+                    android:background="@color/white"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"/>
+
+
+
+
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="1dp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/linerlayout_selected"
+                android:clickable="true"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/Personnelscale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="14dp"
+                    android:text="@string/department"
+                    android:textColor="@color/tv2"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:textSize="15sp"
+                    android:hint="请选择部门"
+                    android:textColor="@color/tv7"
+                    android:background="@color/white"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"/>
+
+
+
+
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="1dp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/linerlayout_selected"
+                android:clickable="true"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/Enterprisewebsite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="14dp"
+                    android:text="@string/Jobnumber"
+                    android:textColor="@color/tv2"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:textSize="15sp"
+                    android:hint="请填写工号"
+                    android:textColor="@color/tv7"
+                    android:background="@color/white"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"/>
+
+
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </com.c.ctgapp.Tools.BounceScrollView>
+
+
+
+
+
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:id="@+id/bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <Button
+            android:id="@+id/createenterprise_btn"
+            android:textColor="@color/white"
+            android:text="@string/save"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:background="@drawable/button_selector"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"/>
+
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

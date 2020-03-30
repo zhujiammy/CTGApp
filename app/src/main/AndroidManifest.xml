@@ -50,6 +50,13 @@
             tools:ignore="InnerclassSeparator,LockedOrientationActivity" />
         <activity android:name=".ui.my.MyBusinessActivity" android:screenOrientation="portrait"
             tools:ignore="InnerclassSeparator,LockedOrientationActivity" />
+        <activity android:name=".ui.my.MyTeamActivity" android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator,LockedOrientationActivity" />
+        <activity android:name=".ui.my.AddStaffActivity" android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator,LockedOrientationActivity" />
+
+
+
 
 
 
