@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
@@ -273,7 +274,16 @@ public class BusinessFriendActivity extends AppCompatActivity implements View.On
         if(item.getItemId() == android.R.id.home){
             finish();
         }
+        if(id == R.id.add){
+            startActivity(new Intent(this,AddFriendsActivity.class));
+        }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.addfriends, menu);
+        return true;
     }
 
     @SuppressLint("WrongConstant")

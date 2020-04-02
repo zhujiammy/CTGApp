@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:background="@color/line"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:layout_alignParentTop="true"
+        android:id="@+id/layout"
+        layout="@layout/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+<!--    com.c.ctgapp.Tools.BounceScrollView-->
+    <com.c.ctgapp.Tools.BounceScrollView
+        android:layout_marginTop="10dp"
+        android:layout_above="@id/bottom"
+        android:layout_below="@id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/line"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="1dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/linerlayout_selected"
+                android:clickable="true"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="14dp"
+                    android:text="手机号码"
+                    android:textColor="@color/tv3"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:paddingRight="20dp"
+                    android:gravity="right|center_vertical"
+                    android:inputType="phone"
+                    android:textSize="15sp"
+                    android:hint="请输入手机号"
+                    android:textColor="@color/black"
+                    android:background="@color/white"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"/>
+
+
+
+
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="1dp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/linerlayout_selected"
+                android:clickable="true"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/Personnelscale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="14dp"
+                    android:text="姓名"
+                    android:textColor="@color/tv3"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:paddingRight="20dp"
+                    android:gravity="right|center_vertical"
+                    android:textSize="15sp"
+                    android:hint="请输入姓名"
+                    android:textColor="@color/black"
+                    android:background="@color/white"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent"/>
+
+
+
+
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="1dp" />
+            <RelativeLayout
+                android:id="@+id/relativeLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/linerlayout_selected"
+                android:clickable="true"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="27dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="14dp"
+                    android:text="分组"
+                    android:textColor="@color/tv3"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@id/backssss"
+                    android:text="选择分组"
+                    android:textColor="@color/tv6"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/backssss"
+                    android:layout_width="4dp"
+                    android:layout_height="7dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:src="@mipmap/backs" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:background="@drawable/linerlayout_selected"
+                android:clickable="true"
+                android:id="@+id/Maillist_lin"
+                android:orientation="vertical"
+                android:layout_marginTop="78dp"
+                android:layout_width="match_parent"
+                android:layout_height="77dp"
+                tools:ignore="MissingConstraints,UselessLeaf">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/line"
+                    />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:baselineAligned="false">
+
+                    <RelativeLayout
+                        android:layout_weight="4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:src="@mipmap/maillist"
+                            android:layout_centerInParent="true"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp">
+                        </ImageView>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+
+                            android:id="@+id/top_tv"
+                            android:textColor="@color/tv2"
+                            android:textSize="16sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="22.5dp"
+                            android:text="手机联系人"
+                            />
+
+                        <TextView
+                            android:layout_below="@id/top_tv"
+                            android:textSize="13sp"
+                            android:textColor="@color/tv3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="添加通讯录中的朋友"
+                            />
+
+                        <ImageView
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="20dp"
+                            android:id="@+id/share_iv"
+                            android:layout_alignParentRight="true"
+                            android:layout_width="4dp"
+                            android:layout_height="7dp"
+                            android:src="@mipmap/backs"
+                            />
+
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </com.c.ctgapp.Tools.BounceScrollView>
+
+
+
+
+
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:id="@+id/bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <Button
+            android:id="@+id/createenterprise_btn"
+            android:textColor="@color/white"
+            android:text="@string/save"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:background="@drawable/button_selector"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"/>
+
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

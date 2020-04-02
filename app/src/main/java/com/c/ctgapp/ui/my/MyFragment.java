@@ -24,6 +24,7 @@ import com.shehuan.niv.NiceImageView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 //我的
 public class MyFragment extends Fragment implements View.OnClickListener {
@@ -31,7 +32,7 @@ public class MyFragment extends Fragment implements View.OnClickListener {
     private MyViewModel myViewModell;
     private Intent intent;
     @BindView(R.id.niceImageView)
-    NiceImageView niceImageView;//头像
+    CircleImageView niceImageView;//头像
     @BindView(R.id.name)
     TextView name;//昵称
     @BindView(R.id.phone_num)

@@ -51,9 +51,8 @@ dependencies {
     implementation 'com.github.SheHuan:NiceImageView:1.0.5'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.3.0'
-    
-
-
-
+    implementation project(':common')
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
 
 }

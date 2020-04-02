@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:background="@color/line"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:layout_alignParentTop="true"
+        android:id="@+id/layout"
+        layout="@layout/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:id="@+id/search_layout"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        android:layout_below="@id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="9dp"
+            android:layout_marginLeft="9dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            tools:ignore="UselessLeaf,UselessParent">
+
+            <com.c.ctgapp.Tools.ClearEditText
+                android:textColor="@color/tv1"
+                android:textSize="13sp"
+                android:gravity="center_vertical"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="27dp"
+                android:background="@drawable/seach_selector"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="输入关键字搜索"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_below="@id/search_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.c.ctgapp.Tools.RecyclerViewEmptySupport
+            android:id="@+id/recycler_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="25dp"
+            />
+
+        <com.c.ctgapp.Tools.AZList.AZWaveSideBarView
+            android:id="@+id/bar_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:backgroundColor="@color/white"
+            app:hintCircleColor="@color/rd_text_no_check"
+            app:hintTextColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:selectTextColor="@color/white"
+            app:strokeColor="@color/white"
+            app:textColor="@color/black"
+            app:waveColor="@color/rd_text_no_check" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+</RelativeLayout>

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="77dp"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <LinearLayout
         android:background="@drawable/linerlayout_selected"
         android:clickable="true"
-        android:id="@+id/sys_news"
+        android:id="@+id/Maillist_lin"
         android:orientation="vertical"
-        android:layout_marginTop="4.5dp"
+        android:layout_marginTop="0.5dp"
         android:layout_width="match_parent"
         android:layout_height="77dp"
         tools:ignore="MissingConstraints,UselessLeaf">
@@ -20,18 +22,23 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:baselineAligned="false">
 
             <RelativeLayout
-                android:layout_weight="2"
+                android:layout_weight="4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <ImageView
-                    android:src="@mipmap/defaulthead"
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgurl"
+                    android:src="@mipmap/df"
                     android:layout_centerInParent="true"
+                    app:civ_border_overlay="true"
+                    app:civ_border_color="@color/white"
+                    app:civ_border_width="1dp"
                     android:layout_width="48dp"
                     android:layout_height="48dp">
-                </ImageView>
+                </de.hdodenhof.circleimageview.CircleImageView>
             </RelativeLayout>
             <RelativeLayout
                 android:gravity="center_vertical"
@@ -39,35 +46,37 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/top_tv"
+
+                    android:id="@+id/mTextName"
                     android:textColor="@color/tv2"
                     android:textSize="16sp"
-                    android:layout_width="64dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="22.5dp"
-                    android:text="客服"
+                    android:text="手机联系人"
                     />
+
                 <TextView
-                    android:layout_below="@id/top_tv"
+                    android:id="@+id/phone_num"
+                    android:layout_below="@id/mTextName"
                     android:textSize="13sp"
                     android:textColor="@color/tv3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="请问最近你有时间吗......"
+                    android:text="添加通讯录中的朋友"
                     />
-            </RelativeLayout>
-            <RelativeLayout
-                android:gravity="center"
-                android:layout_weight="2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/date"
-                    android:textColor="@color/tv4"
+                <Button
+                    android:textColor="@color/white"
+                    android:background="@drawable/button_login_selecotr"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/add"
                     android:textSize="12sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="16.5dp"
-                    android:text="星期二"
+                    android:text="添加"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="50dp"
+                    android:layout_height="27dp"
+
                     />
 
 
@@ -79,4 +88,4 @@
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

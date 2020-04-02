@@ -56,15 +56,15 @@
                     android:textColor="@color/tv3"
                     android:textSize="14sp" />
 
-                <com.shehuan.niv.NiceImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/niceImageView"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_centerVertical="true"
                     android:src="@mipmap/df"
-                    app:border_color="@color/white"
-                    app:border_width="1dp"
-                    app:is_circle="true"
+                    app:civ_border_overlay="true"
+                    app:civ_border_color="@color/white"
+                    app:civ_border_width="1dp"
                     android:layout_marginRight="8dp"
                     android:layout_toLeftOf="@id/backsss" />
 

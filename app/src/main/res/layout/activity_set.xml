@@ -177,5 +177,26 @@
             tools:layout_editor_absoluteX="1dp" />
 
     </LinearLayout>
+    <RelativeLayout
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/linerlayout_selected"
+        android:clickable="true"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="27dp">
 
+        <TextView
+
+            android:layout_centerInParent="true"
+            android:textColor="@color/tv10"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Logout"
+            />
+
+
+    </RelativeLayout>
 </RelativeLayout>
