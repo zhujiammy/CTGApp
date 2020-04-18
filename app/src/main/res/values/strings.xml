@@ -92,4 +92,12 @@
     <string name="login">登录</string>
     <string name="add_friends">添加商友</string>
     <string name="Logout">退出登录</string>
+    <string name="Saveasaddressbook">存为通讯录</string>
+    <string name="Sharingnamecard">分享名片</string>
+    <string name="sendmsg">发消息</string>
+    <string name="Enterpriseinformation">企业信息</string>
+    <string name="Upperreaches">上游客户</string>
+    <string name="downstream">下游客户</string>
+    <string name="Platformclient">平台客户</string>
+    <string name="Addcustomer">添加客户</string>
 </resources>

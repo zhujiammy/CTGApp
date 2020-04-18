@@ -85,6 +85,7 @@
                 android:layout_height="60dp"
                 android:orientation="horizontal">
                 <LinearLayout
+                    android:id="@+id/ApplicationNotice_btn"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:layout_weight="1.3"

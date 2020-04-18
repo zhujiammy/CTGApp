@@ -55,7 +55,7 @@ public class AddFriendsActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         if(v == Maillist_lin){
-            startActivity(new Intent(this,MaillistActivity.class));
+            startActivity(new Intent(this,MaillistActivitys.class));
         }
     }
 }

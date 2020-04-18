@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:background="@color/white"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        android:id="@+id/sys_news"
+        android:orientation="vertical"
+        android:layout_marginTop="4.5dp"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        tools:ignore="MissingConstraints,UselessLeaf">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line"
+            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false">
+
+            <RelativeLayout
+                android:layout_weight="4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:src="@mipmap/defaulthead"
+                    android:layout_centerInParent="true"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp">
+                </ImageView>
+            </RelativeLayout>
+            <RelativeLayout
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/top_tv"
+                    android:textColor="@color/tv2"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22.5dp"
+                    android:text="钢铁侠"
+                    />
+
+                <TextView
+                    android:id="@+id/phone_num"
+                    android:layout_below="@id/top_tv"
+                    android:textSize="13sp"
+                    android:textColor="@color/tv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="13686641883"
+                    />
+                <TextView
+                    android:layout_marginTop="3dp"
+                    android:layout_below="@id/phone_num"
+                    android:textSize="13sp"
+                    android:textColor="@color/tv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="申请加入企业"
+                    />
+                <Button
+                    android:textColor="@color/white"
+                    android:background="#398AF7"
+                    android:text="同意"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_toLeftOf="@id/share_iv"
+                    android:layout_width="42dp"
+                    android:layout_height="27dp"
+                    />
+
+                <Button
+                    android:textColor="@color/red"
+                    android:background="@drawable/button_j_selector"
+                    android:text="拒绝"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/share_iv"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="42dp"
+                    android:layout_height="27dp"
+                    />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

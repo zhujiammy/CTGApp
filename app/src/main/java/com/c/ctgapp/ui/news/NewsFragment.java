@@ -31,7 +31,7 @@ public class NewsFragment extends Fragment {
     private LinearLayoutManager mLinearLayoutManager;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+                             ViewGroup container, Bundle savedInstanceState){
         newsViewMode =
                 ViewModelProviders.of(this).get(NewsViewMode.class);
         View root = inflater.inflate(R.layout.fragment_news, container, false);
@@ -40,12 +40,8 @@ public class NewsFragment extends Fragment {
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLinearLayoutManager);
         recyclerView.setAdapter(adapter);
+        newsViewMode.getText().observe(getViewLifecycleOwner(), s -> {
 
-        newsViewMode.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-
-            }
         });
         return root;
     }

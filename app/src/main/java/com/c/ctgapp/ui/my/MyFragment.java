@@ -53,6 +53,8 @@ public class MyFragment extends Fragment implements View.OnClickListener {
     LinearLayout mybusiness_lin;//我的企业
     @BindView(R.id.Myteam_lin)
     LinearLayout Myteam_lin;//我的团队
+    @BindView(R.id.customermanagement_lin)
+    LinearLayout customermanagement_lin;//客户管理
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myViewModell = ViewModelProviders.of(this).get(MyViewModel.class);
         View root = inflater.inflate(R.layout.fragment_my, container, false);
@@ -78,6 +80,7 @@ public class MyFragment extends Fragment implements View.OnClickListener {
         Queryrecord_rl.setOnClickListener(this);
         mybusiness_lin.setOnClickListener(this);
         Myteam_lin.setOnClickListener(this);
+        customermanagement_lin.setOnClickListener(this);
     }
     @Override
     public void onClick(View v) {
@@ -120,6 +123,12 @@ public class MyFragment extends Fragment implements View.OnClickListener {
             //我的团队
             intent = new Intent(getActivity(),MyTeamActivity.class);
             startActivity(intent);
+        }
+        if(v == customermanagement_lin){
+            //客户管理
+            intent = new Intent(getActivity(),CustomerManagementActivity.class);
+            startActivity(intent);
+
         }
     }
 }
