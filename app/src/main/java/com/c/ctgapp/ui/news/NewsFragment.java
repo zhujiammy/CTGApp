@@ -41,7 +41,6 @@ public class NewsFragment extends Fragment {
         recyclerView.setLayoutManager(mLinearLayoutManager);
         recyclerView.setAdapter(adapter);
         newsViewMode.getText().observe(getViewLifecycleOwner(), s -> {
-
         });
         return root;
     }

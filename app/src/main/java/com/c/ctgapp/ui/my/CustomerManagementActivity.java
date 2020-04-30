@@ -68,7 +68,7 @@ public class CustomerManagementActivity extends AppCompatActivity implements Vie
     public void onClick(View v) {
         if(v == Addcustomer_tv){
            Intent intent = new Intent(getApplicationContext(), BusinessFriendActivity.class);
-            startActivity(intent);
+           startActivity(intent);
         }
     }
 }

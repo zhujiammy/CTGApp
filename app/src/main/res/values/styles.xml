@@ -11,4 +11,11 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:background">@color/colorAccent</item>
+    </style>
+
+
 </resources>
