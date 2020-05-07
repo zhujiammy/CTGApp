@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
     android:background="@color/white"
-    tools:context=".ui.my.MyBusinessActivity"
+    tools:context=".mvvm.view.my.MyBusinessActivity"
     tools:ignore="MergeRootFrame"
     xmlns:android="http://schemas.android.com/apk/res/android">
 

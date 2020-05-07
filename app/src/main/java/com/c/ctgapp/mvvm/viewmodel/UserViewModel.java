@@ -1,10 +1,12 @@
 package com.c.ctgapp.mvvm.viewmodel;
 
+import android.util.Base64;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.c.ctgapp.databasectg.DatabaseHelper;
 import com.c.ctgapp.mvvm.model.Response;
 import com.c.ctgapp.mvvm.model.User;
 import com.c.ctgapp.retrofit.HttpHelper;
@@ -42,7 +44,8 @@ public class UserViewModel extends ViewModel {
        if(type == 1){
            login = serviece.login(telephone,code);
        }else {
-           login = serviece.loginpass(telephone,password);
+           Log.e("password", "password: "+ Base64.encodeToString(password.getBytes(), Base64.DEFAULT));
+           login = serviece.loginpass(telephone,Base64.encodeToString(password.getBytes(), Base64.DEFAULT));
        }
        login.subscribeOn(Schedulers.io())
                .observeOn(AndroidSchedulers.mainThread())
@@ -63,6 +66,7 @@ public class UserViewModel extends ViewModel {
                    @Override
                    public void onNext(Response<User.UserBean> userBeanResponse) {
                        userMutableLiveData.setValue(userBeanResponse);
+
                    }
                });
     }
@@ -92,4 +96,9 @@ public class UserViewModel extends ViewModel {
                     }
                 });
     }
+
+    //添加登录返回数据到数据库
+
+
+
 }

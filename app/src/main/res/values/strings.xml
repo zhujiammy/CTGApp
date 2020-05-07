@@ -37,6 +37,7 @@
     <string name="Pleasedealer">请填写经销商</string>
     <string name="Headportrait">头像</string>
     <string name="save">保存</string>
+    <string name="Confirmmodification">确认修改</string>
     <string name="Nickname">昵称</string>
     <string name="Externalposition">对外职位</string>
     <string name="Expertise">专长特长</string>
@@ -86,11 +87,13 @@
     <string name="department">部门</string>
     <string name="Jobnumber">工号</string>
     <string name="Verificationcodelogin">验证码登录</string>
-    <string name="Passlogin">密码登录</string>
+    <string name="Passlogin">账号密码登录</string>
     <string name="Mobilenumberlogin">手机号登录</string>
+    <string name="Accountregistration">账号注册</string>
     <string name="Getverificationcode">获取验证码</string>
     <string name="VerificationCode">验证码</string>
     <string name="login">登录</string>
+    <string name="register">注册</string>
     <string name="add_friends">添加商友</string>
     <string name="Logout">退出登录</string>
     <string name="Saveasaddressbook">存为通讯录</string>
@@ -101,4 +104,6 @@
     <string name="downstream">下游客户</string>
     <string name="Platformclient">平台客户</string>
     <string name="Addcustomer">添加客户</string>
+    <string name="Forgetpassword">忘记密码</string>
+
 </resources>

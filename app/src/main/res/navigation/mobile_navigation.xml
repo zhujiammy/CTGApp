@@ -7,31 +7,31 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.c.ctgapp.ui.home.HomeFragment"
+        android:name="com.c.ctgapp.mvvm.view.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_news"
-        android:name="com.c.ctgapp.ui.news.NewsFragment"
+        android:name="com.c.ctgapp.mvvm.view.news.NewsFragment"
         android:label="@string/title_msg"
         tools:layout="@layout/fragment_news" />
 
     <fragment
         android:id="@+id/navigation_work"
-        android:name="com.c.ctgapp.ui.work.WorkFragmnet"
+        android:name="com.c.ctgapp.mvvm.view.work.WorkFragmnet"
         android:label="@string/title_work"
         tools:layout="@layout/fragment_transaction" />
 
     <fragment
         android:id="@+id/navigation_transaction"
-        android:name="com.c.ctgapp.ui.transaction.TransactionFragmnet"
+        android:name="com.c.ctgapp.mvvm.view.transaction.TransactionFragmnet"
         android:label="@string/title_transaction"
         tools:layout="@layout/fragment_transaction" />
 
     <fragment
         android:id="@+id/navigation_my"
-        android:name="com.c.ctgapp.ui.my.MyFragment"
+        android:name="com.c.ctgapp.mvvm.view.my.MyFragment"
         android:label="@string/title_my"
         tools:layout="@layout/fragment_my" />
 

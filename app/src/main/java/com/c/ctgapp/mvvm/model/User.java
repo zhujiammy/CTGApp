@@ -1,5 +1,7 @@
 package com.c.ctgapp.mvvm.model;
 
+import java.util.List;
+
 public class User {
 
     public UserBean userBean;
@@ -12,60 +14,62 @@ public class User {
         this.userBean = userBean;
     }
 
-    public static class UserBean{
+
+
+    public static class UserBean {
         /**
-         * userId : 1111
-         * telephone : 18913244422
-         * realName : 曹远
-         * nickName : null
-         * sex : 男
+         * userId : 1260
+         * telephone : 18552026537
+         * realName : 朱佳
+         * nickName :
+         * sex :
          * status : 1
-         * token : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJDVEdfVVJNIiwicmVhbE5hbWUiOiLmm7nov5wiLCJpc3MiOiJ3d3cuY3Rnb2UuY29tIiwiaWF0IjoxNTg4MTIxODY0LCJ1c2VySUQiOjExMTEsInBsYXRmb3JtIjoiQ1RHX1VSTSIsInVzZXJuYW1lIjoiMTg5MTMyNDQ0MjIiLCJpbmR1c3RyeUNvZGUiOiJBR0VOQ1kifQ.GBdCovKLw4Dfz6QoDQ3lBiQhVfoAe0ydhesH_ngma1k
-         * ctgId : Q99ZVE
+         * token : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJDVEdfVVJNIiwicmVhbE5hbWUiOiLmnLHkvbMiLCJpc3MiOiJ3d3cuY3Rnb2UuY29tIiwiaWF0IjoxNTg4NzU2MTI0LCJ1c2VySUQiOjEyNjAsInBsYXRmb3JtIjoiQ1RHX1VSTSIsInVzZXJuYW1lIjoiMTg1NTIwMjY1MzciLCJpbmR1c3RyeUNvZGUiOiJBR0VOQ1kifQ.rbeSOF8qyX54w8w7vo9cpkIaRsnZQs-WinNSsAWEE7k
+         * ctgId : SCD9FB
          * birth : null
-         * file : 2b7b3b69-7929-4ec8-8d2a-650ecd9f2757.jpg
+         * file : @_@.jpg
          * type : 1
-         * industry : AGENCY
-         * loginCompanyIndustry : null
-         * defaultCompanyId : null
-         * defaultCompanyName : null
-         * companyList : null
-         * allianceId : null
-         * allianceName : null
-         * allianceRole : null
-         * companyId : null
-         * companyName : null
-         * position : null
-         * expert : null
-         * allianceList : null
+         * industry : BIG_DATA
+         * loginCompanyIndustry :
+         * defaultCompanyId : -1
+         * defaultCompanyName :
+         * companyList : []
+         * allianceId : -1
+         * allianceName :
+         * allianceRole :
+         * companyId : -1
+         * companyName :
+         * position :
+         * expert :
+         * allianceList : []
          * belongStatus : 0
          */
 
         private int userId;
         private String telephone;
         private String realName;
-        private Object nickName;
+        private String nickName;
         private String sex;
         private int status;
         private String token;
         private String ctgId;
-        private Object birth;
+        private String birth;
         private String file;
         private int type;
         private String industry;
-        private Object loginCompanyIndustry;
-        private Object defaultCompanyId;
-        private Object defaultCompanyName;
-        private Object companyList;
-        private Object allianceId;
-        private Object allianceName;
-        private Object allianceRole;
-        private Object companyId;
-        private Object companyName;
-        private Object position;
-        private Object expert;
-        private Object allianceList;
+        private String loginCompanyIndustry;
+        private int defaultCompanyId;
+        private String defaultCompanyName;
+        private int allianceId;
+        private String allianceName;
+        private String allianceRole;
+        private int companyId;
+        private String companyName;
+        private String position;
+        private String expert;
         private int belongStatus;
+        private List<?> companyList;
+        private List<?> allianceList;
 
         public int getUserId() {
             return userId;
@@ -91,11 +95,11 @@ public class User {
             this.realName = realName;
         }
 
-        public Object getNickName() {
+        public String getNickName() {
             return nickName;
         }
 
-        public void setNickName(Object nickName) {
+        public void setNickName(String nickName) {
             this.nickName = nickName;
         }
 
@@ -131,11 +135,11 @@ public class User {
             this.ctgId = ctgId;
         }
 
-        public Object getBirth() {
+        public String getBirth() {
             return birth;
         }
 
-        public void setBirth(Object birth) {
+        public void setBirth(String birth) {
             this.birth = birth;
         }
 
@@ -163,100 +167,84 @@ public class User {
             this.industry = industry;
         }
 
-        public Object getLoginCompanyIndustry() {
+        public String getLoginCompanyIndustry() {
             return loginCompanyIndustry;
         }
 
-        public void setLoginCompanyIndustry(Object loginCompanyIndustry) {
+        public void setLoginCompanyIndustry(String loginCompanyIndustry) {
             this.loginCompanyIndustry = loginCompanyIndustry;
         }
 
-        public Object getDefaultCompanyId() {
+        public int getDefaultCompanyId() {
             return defaultCompanyId;
         }
 
-        public void setDefaultCompanyId(Object defaultCompanyId) {
+        public void setDefaultCompanyId(int defaultCompanyId) {
             this.defaultCompanyId = defaultCompanyId;
         }
 
-        public Object getDefaultCompanyName() {
+        public String getDefaultCompanyName() {
             return defaultCompanyName;
         }
 
-        public void setDefaultCompanyName(Object defaultCompanyName) {
+        public void setDefaultCompanyName(String defaultCompanyName) {
             this.defaultCompanyName = defaultCompanyName;
         }
 
-        public Object getCompanyList() {
-            return companyList;
-        }
-
-        public void setCompanyList(Object companyList) {
-            this.companyList = companyList;
-        }
-
-        public Object getAllianceId() {
+        public int getAllianceId() {
             return allianceId;
         }
 
-        public void setAllianceId(Object allianceId) {
+        public void setAllianceId(int allianceId) {
             this.allianceId = allianceId;
         }
 
-        public Object getAllianceName() {
+        public String getAllianceName() {
             return allianceName;
         }
 
-        public void setAllianceName(Object allianceName) {
+        public void setAllianceName(String allianceName) {
             this.allianceName = allianceName;
         }
 
-        public Object getAllianceRole() {
+        public String getAllianceRole() {
             return allianceRole;
         }
 
-        public void setAllianceRole(Object allianceRole) {
+        public void setAllianceRole(String allianceRole) {
             this.allianceRole = allianceRole;
         }
 
-        public Object getCompanyId() {
+        public int getCompanyId() {
             return companyId;
         }
 
-        public void setCompanyId(Object companyId) {
+        public void setCompanyId(int companyId) {
             this.companyId = companyId;
         }
 
-        public Object getCompanyName() {
+        public String getCompanyName() {
             return companyName;
         }
 
-        public void setCompanyName(Object companyName) {
+        public void setCompanyName(String companyName) {
             this.companyName = companyName;
         }
 
-        public Object getPosition() {
+        public String getPosition() {
             return position;
         }
 
-        public void setPosition(Object position) {
+        public void setPosition(String position) {
             this.position = position;
         }
 
-        public Object getExpert() {
+        public String getExpert() {
             return expert;
         }
 
-        public void setExpert(Object expert) {
+        public void setExpert(String expert) {
             this.expert = expert;
-        }
-
-        public Object getAllianceList() {
-            return allianceList;
-        }
-
-        public void setAllianceList(Object allianceList) {
-            this.allianceList = allianceList;
         }
 
         public int getBelongStatus() {
@@ -266,8 +254,21 @@ public class User {
         public void setBelongStatus(int belongStatus) {
             this.belongStatus = belongStatus;
         }
+
+        public List<?> getCompanyList() {
+            return companyList;
+        }
+
+        public void setCompanyList(List<?> companyList) {
+            this.companyList = companyList;
+        }
+
+        public List<?> getAllianceList() {
+            return allianceList;
+        }
+
+        public void setAllianceList(List<?> allianceList) {
+            this.allianceList = allianceList;
+        }
     }
-
-
-
 }

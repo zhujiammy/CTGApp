@@ -5,6 +5,8 @@ package com.c.ctgapp.retrofit;
  */
 
 public class Constants {
+    public static String DB_NAME = "ctgdatabase";
+    public static int DB_VERSION = 1;
     //public static String SERVER_URL = "http://192.168.0.125:18282";
     //public static String SERVER_URL = "http://47.105.226.117:18282";
     public static String SERVER_URL = "http://47.105.113.6:12345";

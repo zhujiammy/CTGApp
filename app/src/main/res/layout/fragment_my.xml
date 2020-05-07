@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ui.my.MyFragment">
+    tools:context=".mvvm.view.my.MyFragment">
 
 <!--    com.c.ctgapp.Tools.BounceScrollView-->
     <com.c.ctgapp.Tools.BounceScrollView
@@ -69,7 +69,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_marginTop="16dp"
-                    android:src="@mipmap/df"
+                    android:src="@mipmap/defaulthead"
                     app:civ_border_overlay="true"
                     app:civ_border_color="@color/white"
                     app:civ_border_width="1dp"

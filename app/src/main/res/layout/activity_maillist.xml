@@ -30,7 +30,7 @@
             android:layout_height="40dp"
             tools:ignore="UselessLeaf,UselessParent">
 
-            <com.c.ctgapp.Tools.ClearEditText
+            <com.c.ctgapp.widget.ClearEditText
                 android:textColor="@color/tv1"
                 android:textSize="13sp"
                 android:gravity="center_vertical"

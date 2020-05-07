@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp">
 
-                <com.c.ctgapp.Tools.ClearEditText
+                <com.c.ctgapp.widget.ClearEditText
                     android:layout_weight="1"
                     android:paddingRight="5dp"
                     android:textColorHint="@color/hint_search"
