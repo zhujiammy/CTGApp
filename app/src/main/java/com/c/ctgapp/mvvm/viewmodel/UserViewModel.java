@@ -1,11 +1,14 @@
 package com.c.ctgapp.mvvm.viewmodel;
 
+import android.os.AsyncTask;
 import android.util.Base64;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.c.ctgapp.CTGApp;
+import com.c.ctgapp.dao.UserDao;
 import com.c.ctgapp.databasectg.DatabaseHelper;
 import com.c.ctgapp.mvvm.model.Response;
 import com.c.ctgapp.mvvm.model.User;
@@ -24,13 +27,13 @@ import io.reactivex.schedulers.Schedulers;
 import okhttp3.RequestBody;
 
 public class UserViewModel extends ViewModel {
-    private MutableLiveData<Response<User.UserBean>> userMutableLiveData;
+    private MutableLiveData<Response<User>> userMutableLiveData;
     private MutableLiveData<Response> dataMutableLiveData;
     public UserViewModel(){
         userMutableLiveData = new MutableLiveData<>();
         dataMutableLiveData = new MutableLiveData<>();
     }
-    public MutableLiveData<Response<User.UserBean>> login() {
+    public MutableLiveData<Response<User>> login() {
         return userMutableLiveData;
     }
     public MutableLiveData<Response> getdata(){
@@ -40,7 +43,7 @@ public class UserViewModel extends ViewModel {
    @SuppressWarnings("unchecked")
     public void Login(String telephone,String password,String code,int type){
        Serviece serviece = HttpHelper.getInstance().create(Serviece.class);
-       Observable<Response<User.UserBean>> login = null;
+       Observable<Response<User>> login = null;
        if(type == 1){
            login = serviece.login(telephone,code);
        }else {
@@ -49,7 +52,7 @@ public class UserViewModel extends ViewModel {
        }
        login.subscribeOn(Schedulers.io())
                .observeOn(AndroidSchedulers.mainThread())
-               .subscribe(new Observer<Response<User.UserBean>>() {
+               .subscribe(new Observer<Response<User>>() {
                    @Override
                    public void onError(Throwable e) {
                        Log.d("错误信息", Objects.requireNonNull(e.getMessage()));
@@ -64,7 +67,7 @@ public class UserViewModel extends ViewModel {
 
                    }
                    @Override
-                   public void onNext(Response<User.UserBean> userBeanResponse) {
+                   public void onNext(Response<User> userBeanResponse) {
                        userMutableLiveData.setValue(userBeanResponse);
 
                    }
@@ -97,7 +100,9 @@ public class UserViewModel extends ViewModel {
                 });
     }
 
-    //添加登录返回数据到数据库
+
+
+
 
 
 

@@ -6,14 +6,35 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.room.Room;
+import androidx.room.migration.Migration;
 
+import com.c.ctgapp.databasectg.AppDatabase;
+import com.facebook.stetho.Stetho;
 import com.pilot.common.base.application.BaseApplication;
 
+
 public class CTGApp extends BaseApplication {
+
+
+    private AppDatabase appDatabase;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        Stetho.initializeWithDefaults(this);
+
+        appDatabase = Room.databaseBuilder(getApplicationContext(),
+                AppDatabase.class, "ctg_db.db").build();
+    }
+
+    public AppDatabase getAppDatabase(){
+        return appDatabase;
+    }
+    public void closedatabase(){
+        if(appDatabase.isOpen()){
+            appDatabase.close();
+        }
     }
 
     @Override

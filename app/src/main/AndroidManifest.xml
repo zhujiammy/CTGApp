@@ -29,7 +29,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
-        tools:ignore="GoogleAppIndexingWarning,UnusedAttribute"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute"
         android:theme="@style/AppTheme">
         <activity
             android:name=".mvvm.view.LoginActivity"

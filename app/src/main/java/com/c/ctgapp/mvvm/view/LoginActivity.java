@@ -22,11 +22,14 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.c.ctgapp.CTGApp;
 import com.c.ctgapp.MainActivity;
 import com.c.ctgapp.R;
 import com.c.ctgapp.Service.CTGDBService;
+import com.c.ctgapp.Tools.AppExecutors;
 import com.c.ctgapp.Tools.DialogUtils;
 import com.c.ctgapp.Tools.Utils;
+import com.c.ctgapp.dao.UserDao;
 import com.c.ctgapp.databasectg.DatabaseHelper;
 import com.c.ctgapp.databinding.ActivityLoginBinding;
 import com.c.ctgapp.mvvm.model.Response;
@@ -50,7 +53,9 @@ public class LoginActivity extends AppCompatActivity{
     private UserViewModel userViewModel;
     private ProgressDialog progressDialog;
     private DialogUtils dialogUtils;
+    private CTGApp ctgApp;
     private CTGDBService service;
+
     int type = 1;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,7 +63,8 @@ public class LoginActivity extends AppCompatActivity{
         //setContentView(R.layout.activity_login);
         activityLoginBinding = DataBindingUtil.setContentView(this,R.layout.activity_login);
         //创建数据库
-        service = new CTGDBService(getApplicationContext(), Constants.DB_NAME,null,Constants.DB_VERSION);
+        //service = new CTGDBService(getApplicationContext(), Constants.DB_NAME,null,Constants.DB_VERSION);
+        ctgApp = (CTGApp)getApplication();
         dialogUtils = new DialogUtils();
         userViewModel = new ViewModelProvider(
                 this, new ViewModelProvider.AndroidViewModelFactory(getApplication())
@@ -75,9 +81,24 @@ public class LoginActivity extends AppCompatActivity{
         userViewModel.login().observe(LoginActivity.this, userBeanResponse -> {
             if(userBeanResponse.getStatus() == 0){
                 progressDialog.dismiss();
-                service.queryUserData(userBeanResponse);
-                Utils.setShare2(getApplicationContext(),"userId", String.valueOf(userBeanResponse.getData().getUserId()));
-                Utils.setShare2(getApplicationContext(),"ctgId", String.valueOf(userBeanResponse.getData().getCtgId()));
+                   AppExecutors executors = new AppExecutors();
+                    executors.getDiskIO().execute(() -> {
+                        if(ctgApp.getAppDatabase().userDao().loadAllUsersByUserid(String.valueOf(userBeanResponse.getData().userId)).getCount() == 0){
+                            if(ctgApp.getAppDatabase().userDao().insertUsers(userBeanResponse.getData()) > 0){
+                                Log.e("TAG", "onCreate: "+"数据成功插入user表" );
+                            }else {
+                                Log.e("TAG", "onCreate: "+"数据插入失败" );
+                            }
+                        }else {
+                            Log.e("TAG", "onCreate: "+"数据已存在" );
+                        }
+                        ctgApp.getAppDatabase().userDao().loadAllUsersByUserid(String.valueOf(userBeanResponse.getData().userId)).close();
+
+                    });
+
+                //service.queryUserData(userBeanResponse);
+                Utils.setShare2(getApplicationContext(),"userId", String.valueOf(userBeanResponse.getData().userId));
+                Utils.setShare2(getApplicationContext(),"ctgId", String.valueOf(userBeanResponse.getData().ctgId));
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
                 finish();

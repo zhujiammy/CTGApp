@@ -1,5 +1,6 @@
 package com.c.ctgapp.mvvm.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class uploadImg {
@@ -11,7 +12,7 @@ public class uploadImg {
      * imgList : ["5027dd29-99f1-45e1-b213-49c42c5453e3.png"]
      */
 
-    private List<String> imgList;
+    private List<String> imgList = new ArrayList<>();
 
     public List<String> getImgList() {
         return imgList;

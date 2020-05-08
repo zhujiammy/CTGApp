@@ -23,12 +23,15 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
+import com.c.ctgapp.CTGApp;
 import com.c.ctgapp.R;
+import com.c.ctgapp.Tools.AppExecutors;
 import com.c.ctgapp.Tools.DialogUtils;
 import com.c.ctgapp.Tools.GlideEngine;
 import com.c.ctgapp.Tools.MyBottomSheetDialog;
 import com.c.ctgapp.Tools.Utils;
 import com.c.ctgapp.databinding.ActivityPersonalinformationBinding;
+import com.c.ctgapp.mvvm.model.PersonalInfo;
 import com.c.ctgapp.mvvm.model.Response;
 import com.c.ctgapp.mvvm.model.uploadImg;
 import com.c.ctgapp.mvvm.viewmodel.PersonalInformationViewModel;
@@ -78,13 +81,17 @@ public class PersonalInformationActivity extends AppCompatActivity {
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.setCancelable(true);
         dialogUtils = new DialogUtils();
+
+
         model = new ViewModelProvider(
                 this, new ViewModelProvider.AndroidViewModelFactory(getApplication())
         ).get(PersonalInformationViewModel.class);
+        userInfo(Utils.getShared2(getApplicationContext(),"userId"));
         model.getdata().observe(PersonalInformationActivity.this, response -> {
             if(response.getStatus() == 0){
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(),response.getMsg(),Toast.LENGTH_LONG).show();
+                finish();
             }else {
                 progressDialog.dismiss();
                 dialogUtils.showTwo(PersonalInformationActivity.this,"提示",response.getMsg());
@@ -94,7 +101,11 @@ public class PersonalInformationActivity extends AppCompatActivity {
         model.getuploaddata().observe(this, uploadImgResponse -> {
             if(uploadImgResponse.getStatus() == 0){
                 progressDialog.dismiss();
-                filePath = uploadImgResponse.getData().getImgList().get(uploadImgResponse.getData().getImgList().size()-1);
+                if(uploadImgResponse.getData().getImgList().size()>1){
+                    filePath = uploadImgResponse.getData().getImgList().get(uploadImgResponse.getData().getImgList().size()-1);
+                }else {
+                    filePath = uploadImgResponse.getData().getImgList().get(0);
+                }
                 Log.e("TAG", "filePath: "+filePath );
                 Toast.makeText(getApplicationContext(),"",Toast.LENGTH_LONG).show();
             }else {
@@ -103,6 +114,26 @@ public class PersonalInformationActivity extends AppCompatActivity {
             }
         });
 
+        model.getResponsepersonalinfo().observe(this, response -> {
+            if(response.getStatus() == 0){
+
+            }else {
+                progressDialog.dismiss();
+                dialogUtils.showTwo(PersonalInformationActivity.this,"提示",response.getMsg());
+            }
+        });
+        model.getPersonalInfoMutableLiveData().observe(this, personalInfo -> {
+            binding.nickname.setText(personalInfo.nickname);
+            binding.work.setText(personalInfo.work);
+            binding.edulevel.setText(personalInfo.edulevel);
+            Glide.with(this).load(personalInfo.file).into(binding.niceImageView);
+        });
+
+    }
+
+    //加载个人信息
+    private void userInfo(String uid){
+        model.userInfo(uid);
     }
 
     //保存个人信息
@@ -117,7 +148,7 @@ public class PersonalInformationActivity extends AppCompatActivity {
             progressDialog.setMessage("正在提交...");
             progressDialog.show();
             if(NetworkUtils.isConnected(getApplicationContext())){
-                model.usersave(Utils.getShared2(getApplicationContext(),"ctgId"),binding.edulevel.getText().toString(),binding.nickname.getText().toString(),filePath,binding.work.getText().toString());
+                model.usersave(Utils.getShared2(getApplicationContext(),"userId"),Utils.getShared2(getApplicationContext(),"ctgId"),binding.edulevel.getText().toString(),binding.nickname.getText().toString(),filePath,binding.work.getText().toString());
             }else {
                 Toast.makeText(getApplicationContext(),"请检查您的网络是否连接",Toast.LENGTH_SHORT).show();
             }
