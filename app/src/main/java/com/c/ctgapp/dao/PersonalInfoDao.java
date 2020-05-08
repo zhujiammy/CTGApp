@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.c.ctgapp.mvvm.model.PersonalInfo;
 
@@ -18,5 +19,7 @@ public interface PersonalInfoDao {
     long insertPersonal(PersonalInfo personalInfo);
     @Query("SELECT * FROM personalinfo WHERE realname == :realname")
     PersonalInfo getpersonalinfo(String realname);
+    @Query("UPDATE personalinfo SET file= :file ,nickname=:nickname,work=:work,edulevel= :edulevel WHERE realname == :realname")
+    int  getupdatepersonalinfo(String realname,String file,String nickname,String work,String edulevel);
 
 }

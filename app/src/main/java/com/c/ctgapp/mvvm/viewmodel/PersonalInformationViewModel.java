@@ -76,12 +76,29 @@ public class PersonalInformationViewModel extends AndroidViewModel {
     }
 
     //根据姓名查询个人信息
-    public void select(String realname,Response<PersonalInfo> response){
+    public void select(String realname, Response<PersonalInfo> response){
+
         executors.getDiskIO().execute(() -> {
             if(ctgApp.getAppDatabase().personalInfoDao().getpersonalinfo(realname)!=null && ctgApp.getAppDatabase().personalInfoDao().getpersonalinfo(realname).realname.equals(realname) ){
-                personalInfoMutableLiveData.setValue(ctgApp.getAppDatabase().personalInfoDao().getpersonalinfo(realname));
+
+                if(response.getData().file.equals(ctgApp.getAppDatabase().personalInfoDao().getpersonalinfo(realname).file)&&
+                        response.getData().nickname.equals(ctgApp.getAppDatabase().personalInfoDao().getpersonalinfo(realname).nickname)&&
+                        response.getData().work.equals(ctgApp.getAppDatabase().personalInfoDao().getpersonalinfo(realname).work)&&
+                        response.getData().edulevel.equals(ctgApp.getAppDatabase().personalInfoDao().getpersonalinfo(realname).edulevel)){
+                    Log.e("TAG", "select: "+"数据无更新" );
+                    personalInfoMutableLiveData.postValue(ctgApp.getAppDatabase().personalInfoDao().getpersonalinfo(realname));
+
+
+                }else {
+                    if(ctgApp.getAppDatabase().personalInfoDao().getupdatepersonalinfo(realname,response.getData().file,response.getData().nickname,
+                            response.getData().work,response.getData().edulevel)>0){
+                        Log.e("TAG", "select: "+"数据有更新" );
+                        personalInfoMutableLiveData.postValue(ctgApp.getAppDatabase().personalInfoDao().getpersonalinfo(realname));
+                    }
+                }
+
             }else {
-               inser(response);
+                inser(response);
             }
         });
     }
@@ -142,7 +159,6 @@ public class PersonalInformationViewModel extends AndroidViewModel {
     }
 
     //加载个人信息
-    //保存个人信息
     @SuppressWarnings("unchecked")
     public void userInfo(String uid){
         Serviece serviece = HttpHelper.getInstance().create(Serviece.class);
@@ -164,7 +180,6 @@ public class PersonalInformationViewModel extends AndroidViewModel {
                     }
                     @Override
                     public void onNext(Response<PersonalInfo> response) {
-                        select(response.getData().realname,response);
                         responsepersonalinfo.setValue(response);
                     }
                 });

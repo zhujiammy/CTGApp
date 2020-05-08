@@ -91,7 +91,7 @@ public class PersonalInformationActivity extends AppCompatActivity {
             if(response.getStatus() == 0){
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(),response.getMsg(),Toast.LENGTH_LONG).show();
-                finish();
+                userInfo(Utils.getShared2(getApplicationContext(),"userId"));
             }else {
                 progressDialog.dismiss();
                 dialogUtils.showTwo(PersonalInformationActivity.this,"提示",response.getMsg());
@@ -116,16 +116,19 @@ public class PersonalInformationActivity extends AppCompatActivity {
 
         model.getResponsepersonalinfo().observe(this, response -> {
             if(response.getStatus() == 0){
-
+                model.select(response.getData().realname,response);
             }else {
                 progressDialog.dismiss();
                 dialogUtils.showTwo(PersonalInformationActivity.this,"提示",response.getMsg());
             }
         });
+
         model.getPersonalInfoMutableLiveData().observe(this, personalInfo -> {
             binding.nickname.setText(personalInfo.nickname);
             binding.work.setText(personalInfo.work);
             binding.edulevel.setText(personalInfo.edulevel);
+            filePath = personalInfo.file;
+            Log.e("TAG", "filePath: "+filePath );
             Glide.with(this).load(personalInfo.file).into(binding.niceImageView);
         });
 
