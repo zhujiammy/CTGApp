@@ -127,7 +127,7 @@ public class PersonalInformationActivity extends AppCompatActivity {
             binding.nickname.setText(personalInfo.nickname);
             binding.work.setText(personalInfo.work);
             binding.edulevel.setText(personalInfo.edulevel);
-            filePath = personalInfo.file;
+            filePath = personalInfo.file.replace("https://ctgdev.oss-cn-shanghai.aliyuncs.com/urm/","");
             Log.e("TAG", "filePath: "+filePath );
             Glide.with(this).load(personalInfo.file).into(binding.niceImageView);
         });
