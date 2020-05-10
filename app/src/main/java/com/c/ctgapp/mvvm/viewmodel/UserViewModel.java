@@ -1,22 +1,17 @@
 package com.c.ctgapp.mvvm.viewmodel;
 
-import android.os.AsyncTask;
 import android.util.Base64;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.c.ctgapp.CTGApp;
-import com.c.ctgapp.dao.UserDao;
-import com.c.ctgapp.databasectg.DatabaseHelper;
 import com.c.ctgapp.mvvm.model.Response;
 import com.c.ctgapp.mvvm.model.User;
 import com.c.ctgapp.retrofit.HttpHelper;
 import com.c.ctgapp.retrofit.Serviece;
-import com.google.gson.Gson;
 
-import java.util.Map;
+
 import java.util.Objects;
 
 import io.reactivex.Observable;
@@ -24,7 +19,7 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.RequestBody;
+
 
 public class UserViewModel extends ViewModel {
     private MutableLiveData<Response<User>> userMutableLiveData;

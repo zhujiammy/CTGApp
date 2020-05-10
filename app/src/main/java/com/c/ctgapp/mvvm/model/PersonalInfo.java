@@ -3,6 +3,8 @@ package com.c.ctgapp.mvvm.model;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.Objects;
+
 @Entity
 public class PersonalInfo {
         /**
@@ -31,4 +33,26 @@ public class PersonalInfo {
         public String realname;
         public int companyId;
 
+
+        @Override
+        public boolean equals(Object o) {
+                if (this == o) return true;
+                if (o == null || getClass() != o.getClass()) return false;
+                PersonalInfo that = (PersonalInfo) o;
+                return verifyStatus == that.verifyStatus &&
+                        companyId == that.companyId &&
+                        Objects.equals(nickname, that.nickname) &&
+                        Objects.equals(work, that.work) &&
+                        Objects.equals(edulevel, that.edulevel) &&
+                        Objects.equals(file, that.file) &&
+                        Objects.equals(telphone, that.telphone) &&
+                        Objects.equals(address, that.address) &&
+                        Objects.equals(orgname, that.orgname) &&
+                        Objects.equals(realname, that.realname);
+        }
+
+        @Override
+        public int hashCode() {
+                return Objects.hash(nickname, work, edulevel, file, verifyStatus, telphone, address, orgname, realname, companyId);
+        }
 }

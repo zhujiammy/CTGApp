@@ -6,36 +6,43 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.room.Room;
-import androidx.room.migration.Migration;
 
-import com.c.ctgapp.databasectg.AppDatabase;
+import com.c.ctgapp.mvvm.di.AppComponent;
+import com.c.ctgapp.mvvm.di.AppModule;
+import com.c.ctgapp.mvvm.di.DaggerAppComponent;
 import com.facebook.stetho.Stetho;
 import com.pilot.common.base.application.BaseApplication;
 
+import javax.inject.Inject;
 
-public class CTGApp extends BaseApplication {
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.HasActivityInjector;
 
 
-    private AppDatabase appDatabase;
+public class CTGApp extends BaseApplication implements HasActivityInjector {
 
+    @Inject
+    DispatchingAndroidInjector<Activity> dispatchingAndroidInjector;
+    private AppComponent appComponent;
     @Override
     public void onCreate() {
         super.onCreate();
         Stetho.initializeWithDefaults(this);
+        appComponent = DaggerAppComponent.builder()
+                .application(this)
+                .appModule(new AppModule(this))
+                .build();
+        appComponent.inject(this);
 
-        appDatabase = Room.databaseBuilder(getApplicationContext(),
-                AppDatabase.class, "ctg_db.db").build();
+    }
+    public AppComponent getAppComponent() {
+        return appComponent;
     }
 
-    public AppDatabase getAppDatabase(){
-        return appDatabase;
-    }
-    public void closedatabase(){
-        if(appDatabase.isOpen()){
-            appDatabase.close();
-        }
-    }
+
+
+
 
     @Override
     protected void initializeApplication() {
@@ -120,5 +127,10 @@ public class CTGApp extends BaseApplication {
     @Override
     public void onActivityPostDestroyed(@NonNull Activity activity) {
 
+    }
+
+    @Override
+    public AndroidInjector<Activity> activityInjector() {
+        return dispatchingAndroidInjector;
     }
 }

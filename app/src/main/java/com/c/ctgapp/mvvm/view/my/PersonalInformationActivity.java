@@ -2,16 +2,11 @@ package com.c.ctgapp.mvvm.view.my;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,45 +14,39 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.bumptech.glide.Glide;
-import com.c.ctgapp.CTGApp;
 import com.c.ctgapp.R;
-import com.c.ctgapp.Tools.AppExecutors;
 import com.c.ctgapp.Tools.DialogUtils;
-import com.c.ctgapp.Tools.GlideEngine;
-import com.c.ctgapp.Tools.MyBottomSheetDialog;
 import com.c.ctgapp.Tools.Utils;
 import com.c.ctgapp.databinding.ActivityPersonalinformationBinding;
-import com.c.ctgapp.mvvm.model.PersonalInfo;
-import com.c.ctgapp.mvvm.model.Response;
-import com.c.ctgapp.mvvm.model.uploadImg;
+import com.c.ctgapp.mvvm.view.BaseActivity;
+import com.c.ctgapp.mvvm.viewmodel.DaggerViewModelFactory;
 import com.c.ctgapp.mvvm.viewmodel.PersonalInformationViewModel;
 import com.luck.picture.lib.PictureSelector;
-import com.luck.picture.lib.camera.CustomCameraView;
 import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
-import com.luck.picture.lib.style.PictureCropParameterStyle;
 import com.pilot.common.utils.NetworkUtils;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dagger.android.AndroidInjection;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
-public class PersonalInformationActivity extends AppCompatActivity {
+public class PersonalInformationActivity extends BaseActivity {
 
     private String filePath = null;
-    private PersonalInformationViewModel model;
     private ProgressDialog progressDialog;
     private DialogUtils dialogUtils;
     private ActivityPersonalinformationBinding binding;
@@ -65,8 +54,13 @@ public class PersonalInformationActivity extends AppCompatActivity {
     TextView toolbar_title;//标题
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+    @Inject
+    DaggerViewModelFactory  viewModelFactory;
+    PersonalInformationViewModel model;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this,R.layout.activity_personalinformation);
         ButterKnife.bind(this);
@@ -81,17 +75,12 @@ public class PersonalInformationActivity extends AppCompatActivity {
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.setCancelable(true);
         dialogUtils = new DialogUtils();
-
-
-        model = new ViewModelProvider(
-                this, new ViewModelProvider.AndroidViewModelFactory(getApplication())
-        ).get(PersonalInformationViewModel.class);
-        userInfo(Utils.getShared2(getApplicationContext(),"userId"));
+        model = ViewModelProviders.of(this, viewModelFactory).get(PersonalInformationViewModel.class);
+        model.init(Integer.parseInt(Utils.getShared2(getApplicationContext(),"userId")),Utils.getShared2(getApplicationContext(),"realName"));
         model.getdata().observe(PersonalInformationActivity.this, response -> {
             if(response.getStatus() == 0){
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(),response.getMsg(),Toast.LENGTH_LONG).show();
-                userInfo(Utils.getShared2(getApplicationContext(),"userId"));
             }else {
                 progressDialog.dismiss();
                 dialogUtils.showTwo(PersonalInformationActivity.this,"提示",response.getMsg());
@@ -114,30 +103,23 @@ public class PersonalInformationActivity extends AppCompatActivity {
             }
         });
 
-        model.getResponsepersonalinfo().observe(this, response -> {
-            if(response.getStatus() == 0){
-                model.select(response.getData().realname,response);
-            }else {
-                progressDialog.dismiss();
-                dialogUtils.showTwo(PersonalInformationActivity.this,"提示",response.getMsg());
+
+
+        model.getPersonalInfo().observe(this, personalInfo -> {
+            if(personalInfo !=null){
+                binding.nickname.setText(personalInfo.nickname);
+                binding.work.setText(personalInfo.work);
+                binding.edulevel.setText(personalInfo.edulevel);
+                filePath = personalInfo.file.replace("https://ctgdev.oss-cn-shanghai.aliyuncs.com/urm/","");
+                Log.e("TAG", "filePath: "+filePath );
+                Glide.with(this).load(personalInfo.file).into(binding.niceImageView);
             }
-        });
 
-        model.getPersonalInfoMutableLiveData().observe(this, personalInfo -> {
-            binding.nickname.setText(personalInfo.nickname);
-            binding.work.setText(personalInfo.work);
-            binding.edulevel.setText(personalInfo.edulevel);
-            filePath = personalInfo.file.replace("https://ctgdev.oss-cn-shanghai.aliyuncs.com/urm/","");
-            Log.e("TAG", "filePath: "+filePath );
-            Glide.with(this).load(personalInfo.file).into(binding.niceImageView);
         });
 
     }
 
-    //加载个人信息
-    private void userInfo(String uid){
-        model.userInfo(uid);
-    }
+
 
     //保存个人信息
     public void usersave(View view){
@@ -153,7 +135,8 @@ public class PersonalInformationActivity extends AppCompatActivity {
             if(NetworkUtils.isConnected(getApplicationContext())){
                 model.usersave(Utils.getShared2(getApplicationContext(),"userId"),Utils.getShared2(getApplicationContext(),"ctgId"),binding.edulevel.getText().toString(),binding.nickname.getText().toString(),filePath,binding.work.getText().toString());
             }else {
-                Toast.makeText(getApplicationContext(),"请检查您的网络是否连接",Toast.LENGTH_SHORT).show();
+                dialogUtils.showTwo(PersonalInformationActivity.this,"提示","网络不给力");
+                progressDialog.dismiss();
             }
         }
     }
@@ -174,7 +157,8 @@ public class PersonalInformationActivity extends AppCompatActivity {
                 }
                 model.uploadFile(part);
             }else {
-                Toast.makeText(getApplicationContext(),"请检查您的网络是否连接",Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+                dialogUtils.showTwo(PersonalInformationActivity.this,"提示","网络不给力");
             }
 
     }

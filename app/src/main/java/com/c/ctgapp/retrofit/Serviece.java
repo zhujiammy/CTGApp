@@ -1,5 +1,7 @@
 package com.c.ctgapp.retrofit;
 
+import android.content.ContentResolver;
+
 import androidx.annotation.Nullable;
 
 import com.c.ctgapp.mvvm.model.PersonalInfo;
@@ -7,6 +9,10 @@ import com.c.ctgapp.mvvm.model.Response;
 import com.c.ctgapp.mvvm.model.User;
 import com.c.ctgapp.mvvm.model.uploadImg;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+import dagger.Provides;
 import io.reactivex.Observable;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -19,7 +25,9 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
 
+
 public interface Serviece {
+
     //短信登录
     @FormUrlEncoded
     @POST("/signIn/login")
@@ -86,7 +94,7 @@ public interface Serviece {
     //根据用户ID查询用户详细信息
     @GET("/userInfo/info/{uid}")
     Observable<Response<PersonalInfo>>userInfo(
-            @Path("uid") String uid //userid
+            @Path("uid") int uid //userid
     );
 
     //上传文件

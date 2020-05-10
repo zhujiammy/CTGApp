@@ -1,4 +1,4 @@
-package com.c.ctgapp.dao;
+package com.c.ctgapp.mvvm.db;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -18,7 +18,7 @@ public interface PersonalInfoDao {
     @Insert(onConflict = REPLACE)
     long insertPersonal(PersonalInfo personalInfo);
     @Query("SELECT * FROM personalinfo WHERE realname == :realname")
-    PersonalInfo getpersonalinfo(String realname);
+    LiveData<PersonalInfo> getpersonalinfo(String realname);
     @Query("UPDATE personalinfo SET file= :file ,nickname=:nickname,work=:work,edulevel= :edulevel WHERE realname == :realname")
     int  getupdatepersonalinfo(String realname,String file,String nickname,String work,String edulevel);
 

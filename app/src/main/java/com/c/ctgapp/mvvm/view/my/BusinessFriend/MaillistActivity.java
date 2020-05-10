@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -119,6 +118,7 @@ public class MaillistActivity extends AppCompatActivity {
     private List<AZItemEntity> fillData(List<AZItemEntity> date) {
 
         List<AZItemEntity> sortList = new ArrayList<>();
+
         for (AZItemEntity aDate : date) {
             AZItemEntity item = new AZItemEntity(aDate.getName(),aDate.getPhoneNum(),aDate.getImgUrl());
             item.setName(aDate.getName());
