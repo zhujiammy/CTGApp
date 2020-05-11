@@ -7,6 +7,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.media.AudioManager;
 
+import com.c.ctgapp.Tools.AppExecutors;
 import com.c.ctgapp.mvvm.db.AppDatabase;
 import com.c.ctgapp.mvvm.db.PersonalInfoDao;
 import com.c.ctgapp.retrofit.Serviece;
@@ -29,19 +30,20 @@ public class AppModule {
         return application;
     }
 
-/*    @Provides
-    ContentResolver providesContentResolver(Application app){
-        return app.getContentResolver();
-    }*/
 
     @Singleton @Provides
     AppDatabase provideDb(Application app) {
-        return Room.databaseBuilder(app, AppDatabase.class,"ctg_db.db").allowMainThreadQueries().build();
+        return Room.databaseBuilder(app, AppDatabase.class,"ctg_db.db").build();
     }
 
     @Singleton @Provides
     PersonalInfoDao personalInfoDao(AppDatabase db) {
         return db.personalInfoDao();
+    }
+    @Singleton
+    @Provides
+    AppExecutors appExecutors (){
+        return new AppExecutors();
     }
 
 

@@ -96,6 +96,7 @@ public class RetrofitManager {
                         return true;
                     }
                 })
+
                 //添加请求拦截器
                 .addInterceptor(new Interceptor() {
                     @Override
@@ -105,11 +106,13 @@ public class RetrofitManager {
                                 .newBuilder()
                                 .host(oldRequest.url().host())
                                 .scheme(oldRequest.url().scheme());
+
 //                                .addQueryParameter("key", "value");
 
                         Request request = oldRequest.newBuilder()
                                 .method(oldRequest.method(),oldRequest.body())
                                 .url(builder.build())
+                                .addHeader("Connection","close")
                                 .build();
 
                         return chain.proceed(request);

@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.c.ctgapp.mvvm.di.AppComponent;
 import com.c.ctgapp.mvvm.di.AppModule;
@@ -18,12 +19,15 @@ import javax.inject.Inject;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
+import dagger.android.support.HasSupportFragmentInjector;
 
 
-public class CTGApp extends BaseApplication implements HasActivityInjector {
+public class CTGApp extends BaseApplication implements HasActivityInjector, HasSupportFragmentInjector {
 
     @Inject
     DispatchingAndroidInjector<Activity> dispatchingAndroidInjector;
+    @Inject
+    DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
     private AppComponent appComponent;
     @Override
     public void onCreate() {
@@ -40,7 +44,15 @@ public class CTGApp extends BaseApplication implements HasActivityInjector {
         return appComponent;
     }
 
+    @Override
+    public AndroidInjector<Activity> activityInjector() {
+        return dispatchingAndroidInjector;
+    }
 
+    @Override
+    public AndroidInjector<Fragment> supportFragmentInjector() {
+        return fragmentDispatchingAndroidInjector;
+    }
 
 
 
@@ -129,8 +141,5 @@ public class CTGApp extends BaseApplication implements HasActivityInjector {
 
     }
 
-    @Override
-    public AndroidInjector<Activity> activityInjector() {
-        return dispatchingAndroidInjector;
-    }
+
 }

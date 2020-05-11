@@ -9,6 +9,8 @@ import com.c.ctgapp.mvvm.model.CompanyList;
 import com.c.ctgapp.mvvm.model.PersonalInfo;
 import com.c.ctgapp.mvvm.model.User;
 
+import org.jetbrains.annotations.Nullable;
+
 @Database(entities = {User.class, PersonalInfo.class},version = 1,exportSchema = false)
 @TypeConverters({AllianceList.class,CompanyList.class})
 public abstract class AppDatabase extends RoomDatabase {

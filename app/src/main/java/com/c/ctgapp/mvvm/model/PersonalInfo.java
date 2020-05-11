@@ -1,11 +1,14 @@
 package com.c.ctgapp.mvvm.model;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import java.util.Objects;
 
-@Entity
+@Entity(indices = {@Index(value = {"realname"},
+        unique = true)})
 public class PersonalInfo {
         /**
          * nickname :昵称
@@ -22,6 +25,7 @@ public class PersonalInfo {
 
         @PrimaryKey(autoGenerate = true)
         public int id;
+
         public String nickname;
         public String work;
         public String edulevel;
@@ -30,6 +34,7 @@ public class PersonalInfo {
         public String telphone;
         public String address;
         public String orgname;
+        @ColumnInfo(name = "realname")
         public String realname;
         public int companyId;
 

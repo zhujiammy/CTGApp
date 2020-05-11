@@ -289,6 +289,19 @@ public class Utils {
     }
 
     /**
+     * 获取当前的时间戳
+     * @return
+     */
+    public static String getTimeStame() {
+        //获取当前的毫秒值
+        long time = System.currentTimeMillis();
+        //将毫秒值转换为String类型数据
+        String time_stamp = String.valueOf(time);
+        //返回出去
+        return time_stamp;
+    }
+
+    /**
      * 得到应用程序的包名
      *
      * @return
