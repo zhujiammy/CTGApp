@@ -8,7 +8,7 @@
     android:background="@drawable/lin_selector"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.shehuan.niv.NiceImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/niceImageView"
         android:layout_width="38dp"
         android:layout_height="38dp"
@@ -25,7 +25,7 @@
         app:layout_constraintVertical_bias="0.258" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -38,20 +38,20 @@
 
     <TextView
         android:layout_marginTop="0.5dp"
-        android:id="@+id/textView25"
+        android:id="@+id/telephone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="13693425709"
         android:textColor="@color/tv3"
         android:textSize="13sp"
-        app:layout_constraintStart_toStartOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/textView24"
+        app:layout_constraintStart_toStartOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/name"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        android:id="@+id/imageView2"
+        android:id="@+id/edit_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,7 +59,7 @@
         app:srcCompat="@mipmap/editp" />
 
     <TextView
-        android:id="@+id/textView26"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="财务对接及开票管理"

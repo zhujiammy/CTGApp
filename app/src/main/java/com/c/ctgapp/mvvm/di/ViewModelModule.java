@@ -3,6 +3,7 @@ package com.c.ctgapp.mvvm.di;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.c.ctgapp.mvvm.view.my.MainViewModel;
 import com.c.ctgapp.mvvm.view.my.MyViewModel;
 import com.c.ctgapp.mvvm.viewmodel.DaggerViewModelFactory;
 import com.c.ctgapp.mvvm.viewmodel.PersonalInformationViewModel;
@@ -28,4 +29,9 @@ public abstract  class ViewModelModule {
     @IntoMap
     @ViewModelKey(MyViewModel.class)
     public abstract ViewModel MyViewModel(@Nullable MyViewModel myViewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MainViewModel.class)
+    public abstract ViewModel MainviewModel(@Nullable MainViewModel mainViewModel);
 }

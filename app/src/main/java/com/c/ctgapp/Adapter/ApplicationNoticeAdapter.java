@@ -97,9 +97,9 @@ public class ApplicationNoticeAdapter extends RecyclerView.Adapter implements Vi
      */
     public class BodyViewHolder extends RecyclerView.ViewHolder {
 
+
         public BodyViewHolder(View itemView) {
             super(itemView);
-
 
         }
 

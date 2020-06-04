@@ -65,7 +65,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <EditText
-                android:text="@string/text"
+                android:hint="公司简介"
+                android:id="@+id/profile_et"
                 android:layout_margin="20dp"
                 android:background="@color/white"
                 android:layout_width="match_parent"

@@ -92,6 +92,8 @@
             tools:ignore="InnerclassSeparator,LockedOrientationActivity" />
         <activity android:name=".mvvm.view.ForgetPasswordActivity" android:screenOrientation="portrait"
             tools:ignore="InnerclassSeparator,LockedOrientationActivity" />
+        <activity android:name=".mvvm.view.CreateEnterpriseActivity" android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator,LockedOrientationActivity" />
 
         <!-- Since JCore2.0.0 Required SDK核心功能-->
         <!-- 这个Service要继承JCommonService -->

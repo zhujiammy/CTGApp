@@ -235,12 +235,13 @@
                         android:textColor="@color/tv3"
                         android:textSize="14sp" />
 
-                    <ImageView
+                    <TextView
+                        android:id="@+id/auditStatus_tv"
                         android:layout_margin="4dp"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Personalauthentication"
                         android:layout_centerVertical="true"
-                        android:src="@mipmap/personalauthentication"
                         android:layout_marginRight="8dp"
                         android:layout_toLeftOf="@id/backssss" />
 

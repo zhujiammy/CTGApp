@@ -18,15 +18,17 @@ import com.c.ctgapp.R
 import com.c.ctgapp.Tools.DialogUtils
 import com.c.ctgapp.Tools.Utils
 import com.c.ctgapp.databinding.FragmentMyBinding
-import com.c.ctgapp.mvvm.model.PersonalInfo
+import com.c.ctgapp.mvvm.model.*
 import com.c.ctgapp.mvvm.view.my.BusinessFriend.BusinessFriendActivity
 import com.c.ctgapp.mvvm.view.my.SwitchingEnterprises.SwitchingEnterprisesActivity
 import com.c.ctgapp.mvvm.viewmodel.DaggerViewModelFactory
 import dagger.android.support.AndroidSupportInjection
+import java.security.acl.Owner
+import kotlinx.android.synthetic.main.fragment_my.*
 import javax.inject.Inject
 
 //我的
-class MyFragment : Fragment(), View.OnClickListener {
+class MyFragment : Fragment(), View.OnClickListener,Observer<PersonalInfo> {
     private var binding: FragmentMyBinding? = null
     @JvmField
     @Inject
@@ -34,32 +36,25 @@ class MyFragment : Fragment(), View.OnClickListener {
     private var myViewModell: MyViewModel? = null
     private var intent: Intent? = null
     private var dialogUtils: DialogUtils? = null
+    private var companyId: String? = null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_my, container, false)
         binding = DataBindingUtil.bind(root)
         dialogUtils = DialogUtils()
         myViewModell = ViewModelProviders.of(this, viewModelFactory).get(MyViewModel::class.java)
-        Log.e("TAG", "onCreateView: " + Utils.getShared2(activity, "userId").toInt())
-        myViewModell!!.getuersinfo(Utils.getShared2(activity, "userId").toInt(), Utils.getShared2(activity, "realName"))
-        myViewModell!!.getuserinfodata()!!.observe(viewLifecycleOwner, Observer { personalInfo: PersonalInfo? ->
-            if (personalInfo != null) {
-                binding!!.name.text = personalInfo.nickname
-                Glide.with(this).load(personalInfo.file).into(binding!!.niceImageView)
-                binding!!.phoneNum.text = personalInfo.telphone
-            } else {
-                binding!!.name.text = "填写昵称"
-                Glide.with(this).load(R.mipmap.defaulthead).into(binding!!.niceImageView)
-                binding!!.phoneNum.text = "手机号码"
-            }
-        })
+        UserInfoLiveData.getInstance().observe(viewLifecycleOwner, this)
+        Log.e("companyName",""+Utils.getShared2(activity, "companyName"))
+        binding!!.companyname.setText(Utils.getShared2(activity, "companyName"))
         Event()
         return root
     }
+
 
     override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }
+
 
     private fun Event() {
         binding!!.SwitchingEnterprisesIv.setOnClickListener(this)
@@ -74,10 +69,11 @@ class MyFragment : Fragment(), View.OnClickListener {
         binding!!.mybusinessLin.setOnClickListener(this)
         binding!!.MyteamLin.setOnClickListener(this)
         binding!!.customermanagementLin.setOnClickListener(this)
+        binding!!.companyname.setOnClickListener(this)
     }
 
     override fun onClick(v: View) { //切换企业
-        if (v === binding!!.SwitchingEnterprisesIv) {
+        if (v === binding!!.SwitchingEnterprisesIv || v == binding!!.companyname) {
             intent = Intent(activity, SwitchingEnterprisesActivity::class.java)
             startActivity(intent)
         }
@@ -112,6 +108,16 @@ class MyFragment : Fragment(), View.OnClickListener {
         if (v === binding!!.customermanagementLin) { //客户管理
             intent = Intent(activity, CustomerManagementActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+
+
+    override fun onChanged(t: PersonalInfo?) {
+        if (t != null) {
+                name.setText(t.nickname)
+                phone_num.setText(t.telphone)
+                Glide.with(this).load(t.file).into(niceImageView)
         }
     }
 }

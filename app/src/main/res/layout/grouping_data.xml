@@ -18,12 +18,15 @@
             android:layout_height="50dp"
             tools:ignore="MissingConstraints,UselessLeaf">
             <LinearLayout
+                android:id="@+id/select_group"
+                android:background="@drawable/linerlayout_selected"
+                android:clickable="true"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="49dp">
                 <TextView
-                    android:id="@+id/label_tv"
+                    android:id="@+id/groupName"
                     android:layout_marginLeft="10dp"
                     android:textSize="14sp"
                     android:textColor="@color/tv2"

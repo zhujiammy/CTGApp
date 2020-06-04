@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import com.c.ctgapp.Tools.AppExecutors
 import com.c.ctgapp.mvvm.db.PersonalInfoDao
+import com.c.ctgapp.mvvm.model.Certificationinfo
 import com.c.ctgapp.mvvm.model.PersonalInfo
 import com.c.ctgapp.mvvm.model.Response
 import com.c.ctgapp.retrofit.HttpHelper
@@ -18,6 +19,8 @@ import javax.inject.Singleton
 
 @Singleton
 class PersonalinfoRepo @Inject constructor(private val dao: PersonalInfoDao, private val executors: AppExecutors) {
+
+    //这个类暂时不用了
     private var serviece: Serviece? = null
     private var i = 0
     fun refreshPeronalInfo(userId: Int,realname: String?) {
@@ -49,10 +52,9 @@ class PersonalinfoRepo @Inject constructor(private val dao: PersonalInfoDao, pri
                     })
 
     }
-
+    
     fun getperson(userid: Int, realname: String): LiveData<PersonalInfo> { //根据id获取用户个人信息
         refreshPeronalInfo(userid,realname)
-
         return dao.getpersonalinfo(realname)
     }
 

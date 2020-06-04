@@ -45,6 +45,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/orgName"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     android:text="无锡泽润物流"
@@ -53,6 +54,7 @@
                     android:gravity="center"
                     />
                 <TextView
+                    android:id="@+id/industry"
                     android:layout_below="@id/top_tv"
                     android:textSize="13sp"
                     android:layout_width="50dp"
@@ -76,7 +78,18 @@
                 app:layout_collapseMode="pin"
                 app:contentInsetStartWithNavigation="0dp"
                 app:navigationIcon="@drawable/ic_detail_back"
-                app:menu="@menu/menu_plant_detail" />
+                app:menu="@menu/menu_plant_detail">
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/toolbar_title"
+                    android:layout_gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    />
+            </androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -122,7 +135,7 @@
                     tools:ignore="MissingConstraints" />
 
                 <TextView
-                    android:id="@+id/textView15"
+                    android:id="@+id/phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0.5dp"
@@ -162,7 +175,7 @@
                     tools:ignore="MissingConstraints" />
 
                 <TextView
-                    android:id="@+id/textView17"
+                    android:id="@+id/email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="fengtian@ctgoe.com"
@@ -181,13 +194,13 @@
                     android:textColor="@color/tv5"
                     android:textSize="11sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/textView15"
-                    app:layout_constraintTop_toBottomOf="@+id/textView15"
+                    app:layout_constraintStart_toStartOf="@+id/phone"
+                    app:layout_constraintTop_toBottomOf="@+id/phone"
                     app:layout_constraintVertical_bias="0.192"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
-                    android:id="@+id/textView19"
+                    android:id="@+id/netAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="www.fcewcfdw.com"
@@ -206,14 +219,14 @@
                     android:textColor="@color/tv5"
                     android:textSize="11sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/textView17"
-                    app:layout_constraintTop_toBottomOf="@+id/textView17"
+                    app:layout_constraintStart_toStartOf="@+id/email"
+                    app:layout_constraintTop_toBottomOf="@+id/email"
                     app:layout_constraintVertical_bias="0.2"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
                     android:layout_marginTop="0.5dp"
-                    android:id="@+id/textView21"
+                    android:id="@+id/employeeScale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="50"
@@ -231,14 +244,14 @@
                     android:textColor="@color/tv5"
                     android:textSize="11sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/textView19"
-                    app:layout_constraintTop_toBottomOf="@+id/textView19"
+                    app:layout_constraintStart_toStartOf="@+id/netAddress"
+                    app:layout_constraintTop_toBottomOf="@+id/netAddress"
                     app:layout_constraintVertical_bias="0.362"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
                     android:layout_marginTop="0.5dp"
-                    android:id="@+id/textView23"
+                    android:id="@+id/detailAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="江苏省常州市新北区江海路599号"
@@ -590,6 +603,7 @@
 
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/Honoraryqualification_lin"
                         android:clickable="true"
                         android:background="@drawable/linerlayout_selected"
                         android:gravity="center"

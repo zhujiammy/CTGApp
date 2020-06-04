@@ -69,7 +69,10 @@ class LoginActivity : AppCompatActivity() {
                 Utils.setShare2(applicationContext, "realName", userBeanResponse.data.realName)
                 Utils.setShare2(applicationContext, "userId", userBeanResponse.data.userId.toString())
                 Utils.setShare2(applicationContext, "ctgId", userBeanResponse.data.ctgId.toString())
-                val intent = Intent(applicationContext, MainActivity::class.java)
+                Utils.setShare2(applicationContext, "companyName", userBeanResponse.data.companyName.toString())
+                Utils.setShare2(applicationContext, "token", userBeanResponse.data.token.toString())
+                Utils.setShare2(applicationContext, "companyId", userBeanResponse.data.companyId.toString())
+                val intent = Intent(applicationContext, CreateEnterpriseActivity::class.java)
                 startActivity(intent)
                 finish()
             } else {

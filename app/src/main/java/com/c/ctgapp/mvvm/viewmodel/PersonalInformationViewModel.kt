@@ -3,6 +3,7 @@ package com.c.ctgapp.mvvm.viewmodel
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.c.ctgapp.mvvm.model.Certificationinfo
 import com.c.ctgapp.mvvm.model.PersonalInfo
 import com.c.ctgapp.mvvm.model.Response
 import com.c.ctgapp.mvvm.model.uploadImg
@@ -20,9 +21,8 @@ import javax.inject.Inject
 class PersonalInformationViewModel @Inject constructor(private val personalinfoRepo: PersonalinfoRepo) : BaseViewModel() {
     private val dataMutableLiveData: MutableLiveData<Response<*>> = MutableLiveData()
     private val dataupload: MutableLiveData<Response<uploadImg>> = MutableLiveData()
-    var personalInfo: LiveData<PersonalInfo>? = null
-        private set
-
+    private val identificationdata: MutableLiveData<Response<Certificationinfo>> = MutableLiveData()
+    private val personinfodata: MutableLiveData<Response<PersonalInfo>> = MutableLiveData()
     fun getdata(): MutableLiveData<Response<*>> {
         return dataMutableLiveData
     }
@@ -30,12 +30,12 @@ class PersonalInformationViewModel @Inject constructor(private val personalinfoR
     fun getuploaddata(): MutableLiveData<Response<uploadImg>> {
         return dataupload
     }
+    fun getidentificationdata(): MutableLiveData<Response<Certificationinfo>>{
+        return identificationdata
+    }
 
-    fun init(userid: Int, realname: String) {
-        if (personalInfo != null) {
-            return
-        }
-        personalInfo = personalinfoRepo.getperson(userid, realname)
+    fun getpersoninfo():MutableLiveData<Response<PersonalInfo>>{
+        return personinfodata
     }
 
     /*    //插入数据库
@@ -78,6 +78,44 @@ class PersonalInformationViewModel @Inject constructor(private val personalinfoR
             }
         });
     }*/
+
+    //获取实名认证信息
+    fun identification(userid: String){
+        val serviece = HttpHelper.getInstance().create(Serviece::class.java)
+        val identification = serviece.identification(userid)
+        identification?.subscribeOn(Schedulers.io())
+                ?.observeOn(AndroidSchedulers.mainThread())
+                ?.subscribe(object : Observer<Response<Certificationinfo>> {
+                    override fun onError(e: Throwable) {
+                        Log.d("错误信息", Objects.requireNonNull(e.message))
+                        e.printStackTrace()
+                    }
+                    override fun onComplete() {}
+                    override fun onSubscribe(d: Disposable) {}
+                    override fun onNext(response: Response<Certificationinfo>) {
+                        identificationdata.value = response
+                    }
+                })
+    }
+
+    fun PeronalInfo(userId: Int) {
+        val serviece = HttpHelper.getInstance().create(Serviece::class.java)
+        val userInfo = serviece.userInfo(userId)
+        userInfo?.subscribeOn(Schedulers.io())
+                ?.observeOn(AndroidSchedulers.mainThread())
+                ?.subscribe(object : Observer<Response<PersonalInfo>> {
+                    override fun onError(e: Throwable) {
+                        Log.d("错误信息", Objects.requireNonNull(e.message))
+                        e.printStackTrace()
+                    }
+                    override fun onComplete() {}
+                    override fun onSubscribe(d: Disposable) {}
+                    override fun onNext(response: Response<PersonalInfo>) {
+                        personinfodata.value = response
+                    }
+                })
+    }
+
 //保存个人信息
     fun usersave(uid: String?, ctgId: String?, edulevel: String?, nickname: String?, file: String?, work: String?) {
         val serviece = HttpHelper.getInstance().create(Serviece::class.java)

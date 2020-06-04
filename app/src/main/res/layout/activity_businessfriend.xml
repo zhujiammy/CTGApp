@@ -218,6 +218,7 @@
             android:text="@string/Usergrouping"
             />
         <com.c.ctgapp.Tools.FNRadioGroup
+            android:id="@+id/FriendGroup"
             android:layout_marginTop="20dp"
             app:childMarginLeft="15dp"
             app:childMarginBottom="5dp"
@@ -226,7 +227,7 @@
             android:gravity="center"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="wrap_content">
 
 
             <LinearLayout

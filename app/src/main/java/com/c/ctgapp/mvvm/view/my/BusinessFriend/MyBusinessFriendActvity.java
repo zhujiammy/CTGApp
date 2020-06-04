@@ -2,6 +2,8 @@ package com.c.ctgapp.mvvm.view.my.BusinessFriend;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -44,6 +46,12 @@ public class MyBusinessFriendActvity extends AppCompatActivity {
         mLinearLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLinearLayoutManager);
         recyclerView.setAdapter(adapter);
+        recyclerView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return false;
+            }
+        });
     }
 
     @Override

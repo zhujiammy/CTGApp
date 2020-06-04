@@ -21,9 +21,7 @@ import com.c.ctgapp.R
 import com.c.ctgapp.Tools.DialogUtils
 import com.c.ctgapp.Tools.Utils
 import com.c.ctgapp.databinding.ActivityPersonalinformationBinding
-import com.c.ctgapp.mvvm.model.PersonalInfo
-import com.c.ctgapp.mvvm.model.Response
-import com.c.ctgapp.mvvm.model.uploadImg
+import com.c.ctgapp.mvvm.model.*
 import com.c.ctgapp.mvvm.view.BaseActivity
 import com.c.ctgapp.mvvm.viewmodel.DaggerViewModelFactory
 import com.c.ctgapp.mvvm.viewmodel.PersonalInformationViewModel
@@ -43,12 +41,11 @@ import java.util.*
 import javax.inject.Inject
 
 @Suppress("DEPRECATION")
-class PersonalInformationActivity : BaseActivity() {
+class PersonalInformationActivity : BaseActivity(),Observer<PersonalInfo>{
     private var filePath: String? = null
     private var progressDialog: ProgressDialog? = null
     private var dialogUtils: DialogUtils? = null
     private var binding: ActivityPersonalinformationBinding? = null
-
     @JvmField
     @Inject
     var viewModelFactory: DaggerViewModelFactory? = null
@@ -57,24 +54,28 @@ class PersonalInformationActivity : BaseActivity() {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_personalinformation)
-        ButterKnife.bind(this)
         toolbar_title.text = "个人信息"
         setSupportActionBar(toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+
         progressDialog = ProgressDialog(this@PersonalInformationActivity,
                 R.style.AppTheme_Dark_Dialog)
+
         progressDialog!!.isIndeterminate = true
         progressDialog!!.setCanceledOnTouchOutside(false)
         progressDialog!!.setCancelable(true)
         dialogUtils = DialogUtils()
         model = ViewModelProviders.of(this, viewModelFactory).get(PersonalInformationViewModel::class.java)
-        model!!.init(Utils.getShared2(applicationContext, "userId").toInt(), Utils.getShared2(applicationContext, "realName"))
+        model!!.identification(Utils.getShared2(applicationContext, "userId"))
+        //StatusLiveData.getInstance().observe(this, this)
+        UserInfoLiveData.getInstance().observe(this, this)
         model!!.getdata().observe(this@PersonalInformationActivity, Observer { response: Response<*> ->
             if (response.status == 0) {
                 progressDialog!!.dismiss()
+                model!!.PeronalInfo(Utils.getShared2(applicationContext, "userId").toInt())
                 Toast.makeText(applicationContext, response.msg, Toast.LENGTH_LONG).show()
             } else {
                 progressDialog!!.dismiss()
@@ -90,22 +91,44 @@ class PersonalInformationActivity : BaseActivity() {
                     uploadImgResponse.data.imgList[0]
                 }
                 Log.e("TAG", "filePath: $filePath")
-                Toast.makeText(applicationContext, "", Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext, "图片上传成功", Toast.LENGTH_LONG).show()
             } else {
                 progressDialog!!.dismiss()
                 dialogUtils!!.showTwo(this@PersonalInformationActivity, "提示", uploadImgResponse.msg)
             }
         })
-        model!!.personalInfo!!.observe(this, Observer { personalInfo: PersonalInfo? ->
-            if (personalInfo != null) {
-                binding!!.nickname.setText(personalInfo.nickname)
-                binding!!.work.setText(personalInfo.work)
-                binding!!.edulevel.setText(personalInfo.edulevel)
-                filePath = personalInfo.file.replace("https://ctgdev.oss-cn-shanghai.aliyuncs.com/urm/", "")
-                Log.e("TAG", "filePath: $filePath")
-                Glide.with(this).load(personalInfo.file).into(binding!!.niceImageView)
+        model!!.getpersoninfo().observe(this, Observer { response:Response<PersonalInfo>->
+            if(response.status == 0){
+                Log.e("s","d")
+                putpersondata(response.data)
+            }else{
+                dialogUtils!!.showTwo(this, "提示", response.msg)
             }
         })
+
+        model!!.getidentificationdata().observe(this, Observer { response: Response<Certificationinfo> ->
+            if(response.status == 0){
+                Log.e("data",""+response.data)
+                    if(response.data == null){
+                        auditStatus_tv.text = "未认证"
+                    }else{
+                        if(response.data.auditStatus.equals("审核中") ){
+                            auditStatus_tv.text = "审核中"
+                        }
+                        if(response.data.auditStatus.equals("审核不通过") ){
+                            auditStatus_tv.text = "审核不通过"
+                        }
+                        if(response.data.auditStatus.equals("审核通过") ){
+                            auditStatus_tv.text = "审核通过"
+                        }
+                    }
+                putcertificationinfodata(response.data)
+            }else {
+                dialogUtils!!.showTwo(this@PersonalInformationActivity, "提示", response.msg)
+            }
+        })
+
+
     }
 
     //保存个人信息
@@ -151,7 +174,9 @@ class PersonalInformationActivity : BaseActivity() {
 
     //个人认证
     fun Personalauthentication(view: View?) {
+
         startActivity(Intent(applicationContext, PersonalAuthenticationActivity::class.java))
+
     }
 
     //拍照
@@ -164,26 +189,26 @@ class PersonalInformationActivity : BaseActivity() {
                 .selectionMode(PictureConfig.SINGLE) // 多选 or 单选PictureConfig.MULTIPLE : PictureConfig.SINGLE
                 .previewImage(true) // 是否可预览图片
                 .isWeChatStyle(true) //开启R.style.picture_WeChat_style样式
-//.setPictureCropStyle(style)//动态自定义裁剪主题
+                //.setPictureCropStyle(style)//动态自定义裁剪主题
                 .isCamera(true) // 是否显示拍照按钮
                 .isZoomAnim(true) // 图片列表点击 缩放效果 默认true
-//.setOutputCameraPath("/CustomPath")// 自定义拍照保存路径
+                //.setOutputCameraPath("/CustomPath")// 自定义拍照保存路径
                 .enableCrop(true) // 是否裁剪
                 .compress(true) // 是否压缩
                 .circleDimmedLayer(true) // 是否开启圆形裁剪
-//.sizeMultiplier(0.5f)// glide 加载图片大小 0~1之间 如设置 .glideOverride()无效
+                //.sizeMultiplier(0.5f)// glide 加载图片大小 0~1之间 如设置 .glideOverride()无效
                 .withAspectRatio(1, 1) // 裁剪比例 如16:9 3:2 3:4 1:1 可自定义
-//.selectionMedia(selectList)// 是否传入已选图片
-//.previewEggs(false)// 预览图片时 是否增强左右滑动图片体验(图片滑动一半即可看到上一张是否选中)
-//.cropCompressQuality(90)// 裁剪压缩质量 默认100
-//.compressMaxKB()//压缩最大值kb compressGrade()为Luban.CUSTOM_GEAR有效
-//.compressWH() // 压缩宽高比 compressGrade()为Luban.CUSTOM_GEAR有效
-//.cropWH()// 裁剪宽高比，设置如果大于图片本身宽高则无效
+                //.selectionMedia(selectList)// 是否传入已选图片
+                //.previewEggs(false)// 预览图片时 是否增强左右滑动图片体验(图片滑动一半即可看到上一张是否选中)
+                //.cropCompressQuality(90)// 裁剪压缩质量 默认100
+                //.compressMaxKB()//压缩最大值kb compressGrade()为Luban.CUSTOM_GEAR有效
+                //.compressWH() // 压缩宽高比 compressGrade()为Luban.CUSTOM_GEAR有效
+                //.cropWH()// 裁剪宽高比，设置如果大于图片本身宽高则无效
                 .rotateEnabled(true) // 裁剪是否可旋转图片
-//.scaleEnabled()// 裁剪是否可放大缩小图片
-//.recordVideoSecond()//录制视频秒数 默认60s
-//.isUseCustomCamera(true)// 开启自定义相机
-// .setButtonFeatures(CustomCameraView.BUTTON_STATE_ONLY_CAPTURE)// 自定义相机按钮状态,CustomCameraView.BUTTON_STATE_BOTH
+                //.scaleEnabled()// 裁剪是否可放大缩小图片
+                //.recordVideoSecond()//录制视频秒数 默认60s
+                //.isUseCustomCamera(true)// 开启自定义相机
+                // .setButtonFeatures(CustomCameraView.BUTTON_STATE_ONLY_CAPTURE)// 自定义相机按钮状态,CustomCameraView.BUTTON_STATE_BOTH
                 .forResult(PictureConfig.CHOOSE_REQUEST) //结果回调onActivityResult code
     }
 
@@ -200,11 +225,11 @@ class PersonalInformationActivity : BaseActivity() {
                     Toast.makeText(applicationContext, "选择图片错误", Toast.LENGTH_SHORT).show()
                 }
                 //selectList = PictureSelector.obtainMultipleResult(data);
-// 例如 LocalMedia 里面返回三种path
-// 1.media.getPath(); 为原图path
-// 2.media.getCutPath();为裁剪后path，需判断media.isCut();是否为true
-// 3.media.getCompressPath();为压缩后path，需判断media.isCompressed();是否为true
-// 如果裁剪并压缩了，以取压缩路径为准，因为是先裁剪后压缩的
+                // 例如 LocalMedia 里面返回三种path
+                // 1.media.getPath(); 为原图path
+                // 2.media.getCutPath();为裁剪后path，需判断media.isCut();是否为true
+                // 3.media.getCompressPath();为压缩后path，需判断media.isCompressed();是否为true
+                // 如果裁剪并压缩了，以取压缩路径为准，因为是先裁剪后压缩的
             }
         }
     }
@@ -216,4 +241,31 @@ class PersonalInformationActivity : BaseActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+    private fun putcertificationinfodata(certificationinfo: Certificationinfo){
+        CertificationinfoLiveData.getInstance().value = certificationinfo
+    }
+
+    //更新个人信息
+    private fun putpersondata(personalInfo: PersonalInfo){
+        UserInfoLiveData.getInstance().value = personalInfo
+    }
+
+    private fun updatamyinfo(myinfo:Int){
+        val status = Status()
+        status.myinfo = myinfo
+        StatusLiveData.getInstance().value = status
+    }
+
+    override fun onChanged(t: PersonalInfo?) {
+        if(t!=null){
+            binding!!.nickname.setText(t.nickname)
+            binding!!.work.setText(t.work)
+            binding!!.edulevel.setText(t.edulevel)
+            filePath = t.file.replace("https://ctgdev.oss-cn-shanghai.aliyuncs.com/urm/", "")
+            Log.e("TAG", "filePath: $filePath")
+            Glide.with(this).load(t.file).into(binding!!.niceImageView)
+        }
+    }
+
+
 }

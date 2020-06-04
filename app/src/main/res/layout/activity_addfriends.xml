@@ -55,6 +55,8 @@
                     android:textSize="14sp" />
 
                 <EditText
+                    android:maxLength="11"
+                    android:id="@+id/telephone_et"
                     android:paddingRight="20dp"
                     android:gravity="right|center_vertical"
                     android:inputType="phone"
@@ -95,6 +97,7 @@
                     android:textSize="14sp" />
 
                 <EditText
+                    android:id="@+id/name_et"
                     android:paddingRight="20dp"
                     android:gravity="right|center_vertical"
                     android:textSize="15sp"
@@ -135,6 +138,7 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/groupname_et"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"

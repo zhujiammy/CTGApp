@@ -8,23 +8,17 @@
     android:background="@color/white"
     tools:context=".mvvm.view.news.NewsFragment">
 
-    <!--    <com.scwang.smartrefresh.layout.SmartRefreshLayout
-            android:layout_marginTop="4dp"
-            android:id="@+id/refreshLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <com.c.ctgapp.Tools.RecyclerViewEmptySupport
-                android:id="@+id/recyclerView"
-                android:elevation="4dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-        </com.scwang.smartrefresh.layout.SmartRefreshLayout>-->
-
-    <TextView
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:layout_marginTop="4dp"
+        android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="经销商"
-        android:gravity="center"
-        android:textSize="20sp"
-        />
+        android:layout_height="match_parent">
+        <com.c.ctgapp.Tools.RecyclerViewEmptySupport
+            android:id="@+id/recyclerView"
+            android:elevation="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
 </LinearLayout>

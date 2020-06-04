@@ -56,6 +56,8 @@
                     android:textSize="14sp" />
 
                 <EditText
+                    android:inputType="text"
+                    android:id="@+id/realname_ed"
                     android:hint="请输入姓名"
                     android:textSize="15sp"
                     android:gravity="center|right"
@@ -96,6 +98,8 @@
                     android:textSize="14sp" />
 
                 <EditText
+                    android:inputType="text"
+                    android:id="@+id/idcardnum_ed"
                     android:hint="请输入身份证号"
                     android:textSize="15sp"
                     android:gravity="center|right"
@@ -146,21 +150,19 @@
            >
 
                 <ImageView
-
-                    android:id="@+id/take_photo_z"
-                    android:visibility="gone"
+                    android:src="@mipmap/sfzz"
+                    android:id="@+id/aimage"
                     android:layout_width="170dp"
                     android:layout_height="111dp"
                     />
                 <ImageView
-
-                    android:id="@+id/take_photo_f"
-                    android:visibility="gone"
+                    android:src="@mipmap/sfzf"
+                    android:id="@+id/bimage"
                     android:layout_width="170dp"
                     android:layout_marginLeft="14dp"
                     android:layout_height="111dp"
                     />
-                 <LinearLayout
+<!--                 <LinearLayout
                     android:id="@+id/lin_takephoto"
                     android:gravity="center"
                     android:orientation="vertical"
@@ -210,7 +212,7 @@
                         android:textColor="@color/tv3"
                         android:textSize="12sp"
                         />
-                </LinearLayout>
+                </LinearLayout>-->
 
 
             </LinearLayout>
@@ -245,6 +247,7 @@
         android:layout_height="60dp">
 
         <Button
+            android:onClick="Submitcertification"
             android:id="@+id/createenterprise_btn"
             android:textColor="@color/white"
             android:text="@string/save"

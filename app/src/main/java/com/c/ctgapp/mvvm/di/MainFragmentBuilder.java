@@ -9,4 +9,5 @@ import dagger.android.ContributesAndroidInjector;
 public abstract class MainFragmentBuilder {
     @ContributesAndroidInjector
     public abstract MyFragment bindmyfragment();
+
 }

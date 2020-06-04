@@ -114,7 +114,7 @@
                         app:layout_constraintTop_toTopOf="@+id/name" />
 
                     <TextView
-                        android:id="@+id/textView4"
+                        android:id="@+id/companyname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="17dp"
@@ -130,8 +130,8 @@
                         android:layout_height="15dp"
                         android:layout_marginTop="2dp"
                         android:src="@mipmap/ad"
-                        app:layout_constraintStart_toStartOf="@+id/textView4"
-                        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                        app:layout_constraintStart_toStartOf="@+id/companyname"
+                        app:layout_constraintTop_toBottomOf="@+id/companyname" />
 
                     <TextView
                         android:id="@+id/textView5"
@@ -217,9 +217,9 @@
                         android:layout_height="15dp"
                         android:src="@mipmap/switch_c"
                         android:layout_marginStart="16dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/textView4"
-                        app:layout_constraintStart_toEndOf="@+id/textView4"
-                        app:layout_constraintTop_toTopOf="@+id/textView4" />
+                        app:layout_constraintBottom_toBottomOf="@+id/companyname"
+                        app:layout_constraintStart_toEndOf="@+id/companyname"
+                        app:layout_constraintTop_toTopOf="@+id/companyname" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
